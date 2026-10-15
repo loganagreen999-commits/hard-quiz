@@ -1,0 +1,222 @@
+[
+ {
+  "s": "Geography",
+  "q": "What is the capital of Australia?",
+  "a": "Canberra",
+  "w": [
+   "Sydney",
+   "Melbourne",
+   "Perth"
+  ],
+  "x": "Canberra was purpose-built as a compromise because Sydney and Melbourne both wanted to be the capital."
+ },
+ {
+  "s": "Space",
+  "q": "Which planet has the most known moons?",
+  "a": "Saturn",
+  "w": [
+   "Jupiter",
+   "Uranus",
+   "Neptune"
+  ],
+  "x": "Saturn pulled clearly ahead of Jupiter after a batch of discoveries in 2023 and has well over 200 now."
+ },
+ {
+  "s": "Chemistry",
+  "q": "Which element has the chemical symbol W?",
+  "a": "Tungsten",
+  "w": [
+   "Tin",
+   "Titanium",
+   "Xenon"
+  ],
+  "x": "W comes from its other name, wolfram. Tin is Sn."
+ },
+ {
+  "s": "Geography",
+  "q": "What is the smallest country in the world by area?",
+  "a": "Vatican City",
+  "w": [
+   "Monaco",
+   "San Marino",
+   "Liechtenstein"
+  ],
+  "x": "It's about 0.44 km². Monaco is second."
+ },
+ {
+  "s": "Art",
+  "q": "Who painted the ceiling of the Sistine Chapel?",
+  "a": "Michelangelo",
+  "w": [
+   "Raphael",
+   "Leonardo da Vinci",
+   "Botticelli"
+  ],
+  "x": "He painted it from 1508 to 1512, even though he thought of himself as a sculptor."
+ },
+ {
+  "s": "Biology",
+  "q": "How many bones are in the adult human body?",
+  "a": "206",
+  "w": [
+   "212",
+   "198",
+   "226"
+  ],
+  "x": "Babies are born with around 300, and many of them fuse as they grow."
+ },
+ {
+  "s": "History",
+  "q": "In what year did the Berlin Wall fall?",
+  "a": "1989",
+  "w": [
+   "1991",
+   "1987",
+   "1990"
+  ],
+  "x": "It fell on November 9, 1989. Germany reunified in 1990, and the USSR dissolved in 1991."
+ },
+ {
+  "s": "Geography",
+  "q": "Which country has the largest population?",
+  "a": "India",
+  "w": [
+   "China",
+   "United States",
+   "Indonesia"
+  ],
+  "x": "India passed China in 2023, according to UN estimates."
+ },
+ {
+  "s": "Literature",
+  "q": "Who wrote One Hundred Years of Solitude?",
+  "a": "Gabriel García Márquez",
+  "w": [
+   "Jorge Luis Borges",
+   "Pablo Neruda",
+   "Isabel Allende"
+  ],
+  "x": "It came out in 1967. García Márquez won the Nobel Prize in Literature in 1982."
+ },
+ {
+  "s": "Science",
+  "q": "Which gas makes up most of Earth's atmosphere?",
+  "a": "Nitrogen",
+  "w": [
+   "Oxygen",
+   "Carbon dioxide",
+   "Argon"
+  ],
+  "x": "About 78% nitrogen and 21% oxygen."
+ },
+ {
+  "s": "Geography",
+  "q": "What is the largest desert in the world?",
+  "a": "Antarctica",
+  "w": [
+   "The Sahara",
+   "The Gobi",
+   "The Arabian Desert"
+  ],
+  "x": "A desert is defined by low precipitation, not heat. The Sahara is the largest hot desert."
+ },
+ {
+  "s": "History",
+  "q": "In what year did the Titanic sink?",
+  "a": "1912",
+  "w": [
+   "1905",
+   "1915",
+   "1921"
+  ],
+  "x": "It sank on April 15, 1912, on its maiden voyage from Southampton to New York."
+ },
+ {
+  "s": "History",
+  "q": "Who was the first person to travel into space?",
+  "a": "Yuri Gagarin",
+  "w": [
+   "Neil Armstrong",
+   "Alan Shepard",
+   "John Glenn"
+  ],
+  "x": "Gagarin orbited Earth on April 12, 1961. Alan Shepard was the first American, three weeks later."
+ },
+ {
+  "s": "Geography",
+  "q": "Which country has the most islands?",
+  "a": "Sweden",
+  "w": [
+   "Indonesia",
+   "Philippines",
+   "Canada"
+  ],
+  "x": "Sweden has about 267,000 islands, most of them small and uninhabited."
+ },
+ {
+  "s": "Biology",
+  "q": "Which blood type is the universal donor for red blood cells?",
+  "a": "O negative",
+  "w": [
+   "AB positive",
+   "O positive",
+   "A negative"
+  ],
+  "x": "AB positive is the universal recipient."
+ },
+ {
+  "s": "Sports",
+  "q": "In which sport would you see a “Fosbury Flop”?",
+  "a": "High jump",
+  "w": [
+   "Pole vault",
+   "Diving",
+   "Gymnastics"
+  ],
+  "x": "Dick Fosbury won Olympic gold with it in 1968, and now almost every high jumper uses it."
+ },
+ {
+  "s": "Geography",
+  "q": "Which U.S. state borders only one other state?",
+  "a": "Maine",
+  "w": [
+   "Florida",
+   "Washington",
+   "Rhode Island"
+  ],
+  "x": "Maine's only neighboring state is New Hampshire."
+ },
+ {
+  "s": "Animals",
+  "q": "How many hearts does an octopus have?",
+  "a": "3",
+  "w": [
+   "1",
+   "2",
+   "4"
+  ],
+  "x": "Two pump blood through the gills, and one pumps it to the rest of the body."
+ },
+ {
+  "s": "Literature",
+  "q": "Which Shakespeare play has the line “Out, damned spot!”?",
+  "a": "Macbeth",
+  "w": [
+   "Hamlet",
+   "King Lear",
+   "Othello"
+  ],
+  "x": "Lady Macbeth says it while sleepwalking, trying to wash out blood only she can see."
+ },
+ {
+  "s": "Language",
+  "q": "Which language has the most native speakers?",
+  "a": "Mandarin Chinese",
+  "w": [
+   "English",
+   "Spanish",
+   "Hindi"
+  ],
+  "x": "English has the most speakers overall once second-language learners are counted."
+ }
+]
