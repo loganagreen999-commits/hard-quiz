@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#c4473a">
+<title>Upper-Division General Knowledge</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a single exam card on a Scantron-style sheet; bubbles A–D are the answer controls. */
+:root{
+  --paper:#f3f6f1; --sheet:#ffffff; --ink:#1d2421; --muted:#5d6a63;
+  --form:#c4473a; --form-soft:#f6dcd6; --rule:#d9e1db;
+  --lead:#2b2f33; --ok:#2f7d4f; --ok-soft:#dcefe2; --bad:#b33a2e; --bad-soft:#f7dedb;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#141816; --sheet:#1c211f; --ink:#e7ece9; --muted:#9aa8a0;
+  --form:#e57a6c; --form-soft:#3a2522; --rule:#2e3632;
+  --lead:#e7ece9; --ok:#6fcf97; --ok-soft:#1f3328; --bad:#f08a7e; --bad-soft:#3b2220; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#141816; --sheet:#1c211f; --ink:#e7ece9; --muted:#9aa8a0;
+  --form:#e57a6c; --form-soft:#3a2522; --rule:#2e3632;
+  --lead:#e7ece9; --ok:#6fcf97; --ok-soft:#1f3328; --bad:#f08a7e; --bad-soft:#3b2220; color-scheme:dark}
+html,body{min-height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
+.wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--form);padding-bottom:8px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:.02em;text-transform:uppercase;color:var(--form);line-height:1}
+.brand small{display:block;font-weight:500;font-size:13px;letter-spacing:.14em;color:var(--muted);margin-top:4px}
+.meta{font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.track{display:grid;grid-template-columns:repeat(20,1fr);gap:3px}
+.track i{height:6px;border-radius:2px;background:var(--rule)}
+.track i.ok{background:var(--ok)} .track i.bad{background:var(--bad)} .track i.now{background:var(--form)}
+.card{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:22px 20px;display:flex;flex-direction:column;gap:18px}
+.qno{font-family:var(--f-display);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--form)}
+.subj{color:var(--muted);font-weight:500}
+h1{font-size:23px;font-weight:600;line-height:1.3;margin:0;text-wrap:balance}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;font-size:17px;color:var(--ink);
+  background:transparent;border:1px solid var(--rule);border-radius:6px;padding:12px 14px;cursor:pointer;touch-action:manipulation}
+.opt:hover:not(:disabled){border-color:var(--form)}
+.opt:focus-visible{outline:2px solid var(--form);outline-offset:2px}
+.bub{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--form);display:grid;place-items:center;
+  font-family:var(--f-display);font-weight:700;font-size:14px;color:var(--form)}
+.opt.pick .bub{background:var(--lead);border-color:var(--lead);color:var(--sheet)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok)}
+.opt.right .bub{background:var(--ok);border-color:var(--ok);color:var(--sheet)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.opt.wrong .bub{background:var(--bad);border-color:var(--bad);color:var(--sheet)}
+.opt:disabled{cursor:default}
+.why{font-size:16px;color:var(--muted);border-left:3px solid var(--form);padding-left:12px;margin:0}
+.why b{color:var(--ink)}
+.btn{align-self:flex-end;font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--form);color:var(--sheet);border:0;border-radius:6px;padding:12px 22px;cursor:pointer;touch-action:manipulation}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.btn.ghost{background:transparent;color:var(--form);border:1.5px solid var(--form)}
+textarea{font:inherit;font-size:17px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px;min-height:140px;resize:vertical;width:100%;box-sizing:border-box}
+textarea:focus{outline:2px solid var(--form);outline-offset:1px}
+.note{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.score{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:1;color:var(--form);font-variant-numeric:tabular-nums}
+.score span{font-size:32px;color:var(--muted)}
+.review{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none}
+.review li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--rule);font-size:15px}
+.review .m{font-family:var(--f-mono);font-weight:600}
+.review .m.ok{color:var(--ok)} .review .m.bad{color:var(--bad)}
+.review .a{color:var(--muted)}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+p{margin:0}
+@media (prefers-reduced-motion:no-preference){.card{animation:in .25s ease-out}@keyframes in{from{transform:translateY(6px)}to{transform:none}}}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand">Upper-Division Exam<small>General knowledge · Form 20-H</small></div>
+    <div class="meta" id="meta">Q 1 / 20 · Score 0</div>
+  </header>
+  <div class="track" id="track"></div>
+  <main id="app"></main>
+</div>
+
+<script>
+const Q=[
+ {s:"History",q:"The Peace of Westphalia (1648) ended the Thirty Years' War and which other conflict?",a:"The Eighty Years' War",w:["The Hundred Years' War","The Nine Years' War","The War of the Spanish Succession"],x:"The Peace of Münster, part of the settlement, recognised Dutch independence from Spain."},
+ {s:"Logic",q:"Gödel's second incompleteness theorem says a consistent, sufficiently strong formal system cannot prove…",a:"its own consistency",w:["every true arithmetic statement","that it is complete","the existence of non-standard models"],x:"The first theorem gives unprovable truths; the second shows consistency itself is one of them."},
+ {s:"Philosophy",q:"Who wrote The Phenomenology of Spirit (1807)?",a:"G. W. F. Hegel",w:["Immanuel Kant","Johann Gottlieb Fichte","Edmund Husserl"],x:"Hegel finished it in Jena around the time of Napoleon's victory there in 1806."},
+ {s:"Economics",q:"With zero transaction costs, the Coase theorem predicts that bargaining reaches the efficient outcome…",a:"regardless of how property rights are initially assigned",w:["only if the government assigns rights to the party harmed","only when a Pigouvian tax is imposed","only in perfectly competitive markets"],x:"Ronald Coase, 'The Problem of Social Cost' (1960)."},
+ {s:"Literature",q:"Which novel begins with the words “riverrun, past Eve and Adam's”?",a:"Finnegans Wake",w:["Ulysses","Gravity's Rainbow","Nightwood"],x:"Joyce's last novel; its final sentence loops back into this opening."},
+ {s:"Biology",q:"During DNA replication, Okazaki fragments are synthesised on which strand?",a:"The lagging strand",w:["The leading strand","The template strand only in prokaryotes","The coding strand"],x:"DNA polymerase only extends 5'→3', so the lagging strand is built discontinuously."},
+ {s:"History",q:"At the Battle of Manzikert (1071), the Byzantine army was defeated by…",a:"the Seljuk Turks",w:["the Normans","the Ottoman Turks","the Fatimid Caliphate"],x:"Alp Arslan captured Emperor Romanos IV Diogenes, opening Anatolia to Turkish settlement."},
+ {s:"Physics",q:"By Noether's theorem, invariance of a system's laws under translation in time implies conservation of…",a:"energy",w:["linear momentum","angular momentum","electric charge"],x:"Space translation gives momentum; rotation gives angular momentum."},
+ {s:"Music",q:"Olivier Messiaen composed and premiered his Quartet for the End of Time in…",a:"a German prisoner-of-war camp",w:["the Paris Conservatoire during the Occupation","a monastery in the French Alps","exile in New York"],x:"Stalag VIII-A in Görlitz, premiered January 1941 for prisoners and guards."},
+ {s:"Geography",q:"Counting overseas territories, which country spans the most time zones?",a:"France",w:["Russia","The United States","The United Kingdom"],x:"France covers 12 (13 with its Antarctic claim) thanks to territories from Polynesia to Réunion."},
+ {s:"Biochemistry",q:"Which is generally considered the most abundant protein on Earth?",a:"RuBisCO",w:["Collagen","Actin","Hemoglobin"],x:"The carbon-fixing enzyme of the Calvin cycle, abundant in every plant leaf."},
+ {s:"Law",q:"Marbury v. Madison (1803) is the landmark case that established…",a:"judicial review of acts of Congress",w:["federal supremacy over state taxation","the 'separate but equal' doctrine","the implied powers of Congress"],x:"Implied powers and the tax question were McCulloch v. Maryland (1819)."},
+ {s:"Astronomy",q:"The Chandrasekhar limit, the maximum mass of a stable white dwarf, is about…",a:"1.4 solar masses",w:["0.08 solar masses","3 solar masses","8 solar masses"],x:"Above it, electron degeneracy pressure can no longer hold the star up."},
+ {s:"Classics",q:"“The strong do what they can and the weak suffer what they must” comes from…",a:"Thucydides' Melian Dialogue",w:["Plato's Republic, Book I","Machiavelli's The Prince","Herodotus' account of Thermopylae"],x:"History of the Peloponnesian War, Book V: Athenian envoys to Melos, 416 BC."},
+ {s:"Religion",q:"The First Council of Nicaea (325) was convened mainly to settle the controversy over…",a:"Arianism",w:["Nestorianism","Iconoclasm","Pelagianism"],x:"Arius held that the Son was created; the Nicene Creed declared him homoousios with the Father."},
+ {s:"Computer science",q:"The Cook–Levin theorem proved which problem was NP-complete?",a:"Boolean satisfiability (SAT)",w:["The travelling salesman problem","Graph isomorphism","Integer factorisation"],x:"SAT was the first; Karp then reduced 21 more problems to it in 1972."},
+ {s:"Biology",q:"According to endosymbiotic theory, mitochondria descend from which group of bacteria?",a:"Alphaproteobacteria",w:["Cyanobacteria","Archaea","Firmicutes"],x:"Chloroplasts are the ones descended from cyanobacteria."},
+ {s:"Linguistics",q:"Grimm's law describes…",a:"a systematic shift of Proto-Indo-European stop consonants in Proto-Germanic",w:["the Great Vowel Shift in Middle English","the loss of noun cases in Romance languages","palatalisation in Slavic languages"],x:"That's why Latin pater lines up with English father, and piscis with fish."},
+ {s:"Mathematics",q:"Grigori Perelman declined the Fields Medal after proving…",a:"the Poincaré conjecture",w:["Fermat's Last Theorem","the Riemann hypothesis","the Kepler conjecture"],x:"He proved Thurston's geometrisation conjecture using Ricci flow with surgery (2002–03)."},
+ {s:"Art history",q:"Who painted The Arnolfini Portrait (1434)?",a:"Jan van Eyck",w:["Hans Holbein the Younger","Rogier van der Weyden","Albrecht Dürer"],x:"The convex mirror on the back wall reflects two more figures, possibly the painter himself."}
+];
+const L="ABCD", app=document.getElementById("app"), meta=document.getElementById("meta"), track=document.getElementById("track");
+let order, i, score, log;
+function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function drawTrack(){track.innerHTML="";for(let k=0;k<Q.length;k++){const b=el("i");if(k<log.length)b.className=log[k].ok?"ok":"bad";else if(k===i)b.className="now";track.append(b)}}
+function start(){order=shuffle(Q).map(q=>({...q,c:shuffle([q.a,...q.w])}));i=0;score=0;log=[];ask()}
+function ask(){
+  const q=order[i];meta.textContent=`Q ${i+1} / ${Q.length} · Score ${score}`;drawTrack();
+  const c=el("section","card");
+  c.append(el("div","qno",`Question ${i+1} <span class="subj">· ${q.s}</span>`),el("h1",null,q.q));
+  const opts=el("div","opts");
+  q.c.forEach((t,k)=>{const b=el("button","opt");b.id=`opt-${i}-${k}`;b.append(el("span","bub",L[k]),el("span",null,t));
+    b.onclick=()=>answer(k,opts,c);opts.append(b)});
+  c.append(opts);app.replaceChildren(c);
+}
+function answer(k,opts,c){
+  const q=order[i],ok=q.c[k]===q.a;if(ok)score++;log.push({ok,q});
+  [...opts.children].forEach((b,j)=>{b.disabled=true;if(q.c[j]===q.a)b.classList.add("right");else if(j===k)b.classList.add("wrong")});
+  opts.children[k].classList.add("pick");
+  c.append(el("p","why",`<b>${ok?"Correct.":"Answer: "+q.a+"."}</b> ${q.x}`));
+  const n=el("button","btn",i+1<Q.length?"Next":"Continue");n.id="next";
+  n.onclick=()=>{i++;i<Q.length?ask():hazel()};c.append(n);n.focus({preventScroll:true});
+  meta.textContent=`Q ${i+1} / ${Q.length} · Score ${score}`;drawTrack();
+}
+function hazel(){
+  meta.textContent=`Done · Score ${score} / ${Q.length}`;drawTrack();
+  const c=el("section","card");
+  c.append(el("div","qno","Final question <span class=\"subj\">· Open response</span>"),el("h1",null,"What is hazel?"),
+    el("p","note","Not scored"));
+  const t=el("textarea");t.id="hazel";t.setAttribute("aria-label","Your answer");t.placeholder="Write your answer…";
+  const b=el("button","btn","Finish");b.id="finish";
+  b.onclick=()=>{t.value="";results()};   // answer is intentionally discarded
+  c.append(t,b);app.replaceChildren(c);
+}
+function results(){
+  const pct=Math.round(score/Q.length*100);
+  const verdict=pct>=90?"Summa cum laude.":pct>=75?"Magna cum laude.":pct>=60?"Cum laude.":pct>=40?"A respectable showing.":"Office hours are Tuesdays at 2.";
+  const c=el("section","card");
+  c.append(el("div","qno","Results"),el("div","score",`${score}<span> / ${Q.length}</span>`),el("p",null,`${pct}% · ${verdict}`));
+  const ul=el("ul","review");
+  log.forEach((r,k)=>{const li=el("li");li.append(el("span","m "+(r.ok?"ok":"bad"),r.ok?"✓":"✗"),
+    el("div",null,`${k+1}. ${r.q.q}<br><span class="a">${r.q.a}</span>`));ul.append(li)});
+  const row=el("div","row"),b=el("button","btn","Take it again");b.id="again";b.onclick=start;row.append(b);
+  c.append(ul,row);app.replaceChildren(c);
+}
+start();
+</script>
+</body>
+</html>
