@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#c4473a">
-<title>Upper-Division General Knowledge</title>
+<title>Grew Up Online Quiz</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: a single exam card on a Scantron-style sheet; bubbles A–D are the answer controls. */
+/* Layout: a single exam card on a quiz sheet; bubbles A–D are the answer controls. */
 :root{
   --paper:#f3f6f1; --sheet:#ffffff; --ink:#1d2421; --muted:#5d6a63;
   --form:#c4473a; --form-soft:#f6dcd6; --rule:#d9e1db;
@@ -82,7 +82,7 @@ body{margin:0}
 
 <div class="wrap">
   <header>
-    <div class="brand">Upper-Division Exam<small>General knowledge · Form 20-H</small></div>
+    <div class="brand">Grew Up Online<small>A quiz for the class of the 2020s</small></div>
     <div class="meta" id="meta">Q 1 / 20 · Score 0</div>
   </header>
   <div class="track" id="track"></div>
@@ -91,26 +91,26 @@ body{margin:0}
 
 <script>
 const Q=[
- {s:"History",q:"The Peace of Westphalia (1648) ended the Thirty Years' War and which other conflict?",a:"The Eighty Years' War",w:["The Hundred Years' War","The Nine Years' War","The War of the Spanish Succession"],x:"The Peace of Münster, part of the settlement, recognised Dutch independence from Spain."},
- {s:"Logic",q:"Gödel's second incompleteness theorem says a consistent, sufficiently strong formal system cannot prove…",a:"its own consistency",w:["every true arithmetic statement","that it is complete","the existence of non-standard models"],x:"The first theorem gives unprovable truths; the second shows consistency itself is one of them."},
- {s:"Philosophy",q:"Who wrote The Phenomenology of Spirit (1807)?",a:"G. W. F. Hegel",w:["Immanuel Kant","Johann Gottlieb Fichte","Edmund Husserl"],x:"Hegel finished it in Jena around the time of Napoleon's victory there in 1806."},
- {s:"Economics",q:"With zero transaction costs, the Coase theorem predicts that bargaining reaches the efficient outcome…",a:"regardless of how property rights are initially assigned",w:["only if the government assigns rights to the party harmed","only when a Pigouvian tax is imposed","only in perfectly competitive markets"],x:"Ronald Coase, 'The Problem of Social Cost' (1960)."},
- {s:"Literature",q:"Which novel begins with the words “riverrun, past Eve and Adam's”?",a:"Finnegans Wake",w:["Ulysses","Gravity's Rainbow","Nightwood"],x:"Joyce's last novel; its final sentence loops back into this opening."},
- {s:"Biology",q:"During DNA replication, Okazaki fragments are synthesised on which strand?",a:"The lagging strand",w:["The leading strand","The template strand only in prokaryotes","The coding strand"],x:"DNA polymerase only extends 5'→3', so the lagging strand is built discontinuously."},
- {s:"History",q:"At the Battle of Manzikert (1071), the Byzantine army was defeated by…",a:"the Seljuk Turks",w:["the Normans","the Ottoman Turks","the Fatimid Caliphate"],x:"Alp Arslan captured Emperor Romanos IV Diogenes, opening Anatolia to Turkish settlement."},
- {s:"Physics",q:"By Noether's theorem, invariance of a system's laws under translation in time implies conservation of…",a:"energy",w:["linear momentum","angular momentum","electric charge"],x:"Space translation gives momentum; rotation gives angular momentum."},
- {s:"Music",q:"Olivier Messiaen composed and premiered his Quartet for the End of Time in…",a:"a German prisoner-of-war camp",w:["the Paris Conservatoire during the Occupation","a monastery in the French Alps","exile in New York"],x:"Stalag VIII-A in Görlitz, premiered January 1941 for prisoners and guards."},
- {s:"Geography",q:"Counting overseas territories, which country spans the most time zones?",a:"France",w:["Russia","The United States","The United Kingdom"],x:"France covers 12 (13 with its Antarctic claim) thanks to territories from Polynesia to Réunion."},
- {s:"Biochemistry",q:"Which is generally considered the most abundant protein on Earth?",a:"RuBisCO",w:["Collagen","Actin","Hemoglobin"],x:"The carbon-fixing enzyme of the Calvin cycle, abundant in every plant leaf."},
- {s:"Law",q:"Marbury v. Madison (1803) is the landmark case that established…",a:"judicial review of acts of Congress",w:["federal supremacy over state taxation","the 'separate but equal' doctrine","the implied powers of Congress"],x:"Implied powers and the tax question were McCulloch v. Maryland (1819)."},
- {s:"Astronomy",q:"The Chandrasekhar limit, the maximum mass of a stable white dwarf, is about…",a:"1.4 solar masses",w:["0.08 solar masses","3 solar masses","8 solar masses"],x:"Above it, electron degeneracy pressure can no longer hold the star up."},
- {s:"Classics",q:"“The strong do what they can and the weak suffer what they must” comes from…",a:"Thucydides' Melian Dialogue",w:["Plato's Republic, Book I","Machiavelli's The Prince","Herodotus' account of Thermopylae"],x:"History of the Peloponnesian War, Book V: Athenian envoys to Melos, 416 BC."},
- {s:"Religion",q:"The First Council of Nicaea (325) was convened mainly to settle the controversy over…",a:"Arianism",w:["Nestorianism","Iconoclasm","Pelagianism"],x:"Arius held that the Son was created; the Nicene Creed declared him homoousios with the Father."},
- {s:"Computer science",q:"The Cook–Levin theorem proved which problem was NP-complete?",a:"Boolean satisfiability (SAT)",w:["The travelling salesman problem","Graph isomorphism","Integer factorisation"],x:"SAT was the first; Karp then reduced 21 more problems to it in 1972."},
- {s:"Biology",q:"According to endosymbiotic theory, mitochondria descend from which group of bacteria?",a:"Alphaproteobacteria",w:["Cyanobacteria","Archaea","Firmicutes"],x:"Chloroplasts are the ones descended from cyanobacteria."},
- {s:"Linguistics",q:"Grimm's law describes…",a:"a systematic shift of Proto-Indo-European stop consonants in Proto-Germanic",w:["the Great Vowel Shift in Middle English","the loss of noun cases in Romance languages","palatalisation in Slavic languages"],x:"That's why Latin pater lines up with English father, and piscis with fish."},
- {s:"Mathematics",q:"Grigori Perelman declined the Fields Medal after proving…",a:"the Poincaré conjecture",w:["Fermat's Last Theorem","the Riemann hypothesis","the Kepler conjecture"],x:"He proved Thurston's geometrisation conjecture using Ricci flow with surgery (2002–03)."},
- {s:"Art history",q:"Who painted The Arnolfini Portrait (1434)?",a:"Jan van Eyck",w:["Hans Holbein the Younger","Rogier van der Weyden","Albrecht Dürer"],x:"The convex mirror on the back wall reflects two more figures, possibly the painter himself."}
+ {s:"Games",q:"What is the minimum number of obsidian blocks needed to build a working Nether portal in Minecraft?",a:"10",w:["14","8","12"],x:"The corners of the 4×5 frame are optional, so 14 drops to 10."},
+ {s:"Apps",q:"TikTok absorbed which lip-syncing app in 2018?",a:"Musical.ly",w:["Dubsmash","Vine","Triller"],x:"ByteDance bought Musical.ly in 2017 and merged its users into TikTok the next August."},
+ {s:"Movies",q:"In Avengers: Infinity War, which Infinity Stone was hidden on Vormir?",a:"The Soul Stone",w:["The Mind Stone","The Reality Stone","The Power Stone"],x:"Getting it required a sacrifice. Thanos gave up Gamora; in Endgame, Black Widow gave herself."},
+ {s:"Games",q:"Which company developed Pokémon Go?",a:"Niantic",w:["Game Freak","The Pokémon Company","Rovio"],x:"Niantic had already made Ingress, a location-based game whose map data Pokémon Go reused."},
+ {s:"Games",q:"Among Us took off in 2020, but what year did it first come out?",a:"2018",w:["2019","2016","2020"],x:"Innersloth released it in June 2018 to almost no players until streamers picked it up two years later."},
+ {s:"Internet",q:"“The Dress” that split the internet in 2015 was actually what colors?",a:"Blue and black",w:["White and gold","Blue and gold","White and black"],x:"How you saw it depended on what lighting your brain assumed the photo was taken in."},
+ {s:"Tech",q:"Which was the first iPhone to drop the headphone jack?",a:"iPhone 7",w:["iPhone 6s","iPhone X","iPhone 8"],x:"Apple shipped it in 2016 with a Lightning-to-headphone adapter in the box."},
+ {s:"Internet",q:"What was the first YouTube video to pass 1 billion views?",a:"“Gangnam Style” by PSY",w:["“Baby” by Justin Bieber","“Charlie Bit My Finger”","“Despacito” by Luis Fonsi"],x:"It hit a billion in December 2012 and later broke YouTube's 32-bit view counter."},
+ {s:"Internet",q:"The 2014 Ice Bucket Challenge raised money to fight which disease?",a:"ALS",w:["Multiple sclerosis","Cystic fibrosis","Parkinson's disease"],x:"The ALS Association took in about $115 million, which helped fund the discovery of the NEK1 gene."},
+ {s:"Games",q:"Which company bought Minecraft's maker, Mojang, in 2014?",a:"Microsoft",w:["Electronic Arts","Tencent","Activision"],x:"The price was $2.5 billion."},
+ {s:"TV",q:"According to its theme song, how many days of summer vacation do Phineas and Ferb get?",a:"104",w:["100","96","112"],x:"“There's 104 days of summer vacation, and school comes along just to end it.”"},
+ {s:"TV",q:"What is Hannah Montana's real name in the show?",a:"Miley Stewart",w:["Miley Cyrus","Lilly Truscott","Miley Ray"],x:"Miley Cyrus played Miley Stewart, who secretly performed as Hannah Montana."},
+ {s:"TV",q:"Stranger Things takes place in which fictional town?",a:"Hawkins, Indiana",w:["Derry, Maine","Riverdale","Hawkins, Ohio"],x:"Derry, Maine is the town from Stephen King's It."},
+ {s:"Books",q:"In The Hunger Games, which district is Rue from?",a:"District 11",w:["District 12","District 4","District 8"],x:"District 11 is agriculture. Katniss is from 12, and Finnick is from 4."},
+ {s:"Games",q:"Before Battle Royale, Fortnite launched with which co-op game mode?",a:"Save the World",w:["Creative","Team Rumble","Zone Wars"],x:"Save the World came out in July 2017, and Battle Royale followed that September."},
+ {s:"Games",q:"In Club Penguin, what were the small fluffy pets called?",a:"Puffles",w:["Pookies","Fluffles","Penglets"],x:"Club Penguin shut down in 2017."},
+ {s:"Money",q:"The 2021 GameStop short squeeze was driven by users of which subreddit?",a:"r/wallstreetbets",w:["r/stocks","r/investing","r/superstonk"],x:"GME went from about $20 to an intraday high near $483 in January 2021."},
+ {s:"Music",q:"Which country singer joined Lil Nas X on the “Old Town Road” remix?",a:"Billy Ray Cyrus",w:["Blake Shelton","Luke Bryan","Keith Urban"],x:"The remix helped it spend a record 19 weeks at No. 1 on the Billboard Hot 100."},
+ {s:"Internet",q:"Which company bought Wordle in early 2022?",a:"The New York Times",w:["Google","Hasbro","Meta"],x:"Josh Wardle originally made it for his partner, who loved word games."},
+ {s:"Apps",q:"What was the maximum length of a Vine video?",a:"6 seconds",w:["7 seconds","10 seconds","15 seconds"],x:"Twitter shut Vine down in January 2017."}
 ];
 const L="ABCD", app=document.getElementById("app"), meta=document.getElementById("meta"), track=document.getElementById("track");
 let order, i, score, log;
@@ -148,7 +148,7 @@ function hazel(){
 }
 function results(){
   const pct=Math.round(score/Q.length*100);
-  const verdict=pct>=90?"Summa cum laude.":pct>=75?"Magna cum laude.":pct>=60?"Cum laude.":pct>=40?"A respectable showing.":"Office hours are Tuesdays at 2.";
+  const verdict=pct>=90?"Chronically online, and proud.":pct>=75?"You were definitely there.":pct>=60?"Solid. You paid attention.":pct>=40?"You touched grass at least sometimes.":"Were you even on the internet?";
   const c=el("section","card");
   c.append(el("div","qno","Results"),el("div","score",`${score}<span> / ${Q.length}</span>`),el("p",null,`${pct}% · ${verdict}`));
   const ul=el("ul","review");
