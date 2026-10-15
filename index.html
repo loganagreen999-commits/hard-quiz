@@ -3,90 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#c4473a">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
 <title>Know-It-All Quiz</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@800&family=Public+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="kia.css">
 <style>
-/* Layout: a single exam card on a quiz sheet; bubbles A–D are the answer controls. */
-:root{
-  --paper:#f3f6f1; --sheet:#ffffff; --ink:#1d2421; --muted:#5d6a63;
-  --form:#c4473a; --form-soft:#f6dcd6; --rule:#d9e1db;
-  --lead:#2b2f33; --ok:#2f7d4f; --ok-soft:#dcefe2; --bad:#b33a2e; --bad-soft:#f7dedb;
-  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
-  --f-body:"Newsreader",Georgia,"Times New Roman",serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+/* Layout: one column on a phone (question, then the four colour tiles under the thumb);
+   on a wide screen the question holds the left half and the tiles stand in the right. */
+#app>section{display:flex;flex-direction:column;gap:18px;min-width:0}
+.ask{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.ask .side{display:flex;flex-direction:column;gap:18px;min-width:0}
+.after{display:flex;flex-direction:column;gap:16px}
+.after .btn{align-self:stretch}
+.review{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.review li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:12px;align-items:start;padding:12px 18px 12px 12px;background:var(--surface);border-radius:var(--r)}
+.review .m{display:grid;place-items:center;width:36px;height:36px;border-radius:50%}
+.review .m svg{width:20px;height:20px}
+.review .m.ok{background:var(--accent);color:var(--accent-ink)}
+.review .m.bad{background:var(--ink);color:var(--bg)}
+.review .qq{font-size:17px;line-height:1.35}
+.review .a{display:block;font-weight:600;margin-top:2px}
+.score{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.score .n{font-family:var(--f-display);font-weight:800;font-size:clamp(120px,40vw,220px);line-height:.78;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.score .of{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,12vw,72px);line-height:.8;color:var(--muted)}
+.res{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.res .top{display:flex;flex-direction:column;gap:16px}
+.pct{font-size:22px;line-height:1.35}
+.pct b{font-weight:600}
+@media (min-width:960px){
+  body{--gut:40px}
+  .wrap{max-width:1180px;padding-top:24px;gap:26px}
+  .mark{font-size:36px}
+  .meta{font-size:20px}
+  .ask{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"side opts" "after opts";column-gap:40px;row-gap:22px;align-items:start}
+  .ask .side{grid-area:side} .ask .opts{grid-area:opts} .ask .after{grid-area:after}
+  .ask .q{font-size:clamp(48px,4.6vw,68px);line-height:.98}
+  .ask .opts{gap:12px}
+  .ask .opt{min-height:96px}
+  .ask .opt .t{font-size:24px}
+  .ask .opt .k{font-size:56px;width:38px}
+  .res{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:48px;align-items:start}
+  .res .top{position:sticky;top:24px}
+  .hz{max-width:760px}
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#141816; --sheet:#1c211f; --ink:#e7ece9; --muted:#9aa8a0;
-  --form:#e57a6c; --form-soft:#3a2522; --rule:#2e3632;
-  --lead:#e7ece9; --ok:#6fcf97; --ok-soft:#1f3328; --bad:#f08a7e; --bad-soft:#3b2220; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --paper:#141816; --sheet:#1c211f; --ink:#e7ece9; --muted:#9aa8a0;
-  --form:#e57a6c; --form-soft:#3a2522; --rule:#2e3632;
-  --lead:#e7ece9; --ok:#6fcf97; --ok-soft:#1f3328; --bad:#f08a7e; --bad-soft:#3b2220; color-scheme:dark}
-html,body{min-height:100%}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.45;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 40px}
-.wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
-header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--form);padding-bottom:8px}
-.brand{font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:.02em;text-transform:uppercase;color:var(--form);line-height:1}
-.brand small{display:block;font-weight:500;font-size:13px;letter-spacing:.14em;color:var(--muted);margin-top:4px}
-.meta{font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-.track{display:grid;gap:3px}
-.track i{height:6px;border-radius:2px;background:var(--rule)}
-.track i.ok{background:var(--ok)} .track i.bad{background:var(--bad)} .track i.now{background:var(--form)}
-.card{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:22px 20px;display:flex;flex-direction:column;gap:18px}
-.qno{font-family:var(--f-display);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--form)}
-.subj{color:var(--muted);font-weight:500}
-h1{font-size:23px;font-weight:600;line-height:1.3;margin:0;text-wrap:balance}
-.opts{display:flex;flex-direction:column;gap:10px}
-.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;font-size:17px;color:var(--ink);
-  background:transparent;border:1px solid var(--rule);border-radius:6px;padding:12px 14px;cursor:pointer;touch-action:manipulation}
-.opt:hover:not(:disabled){border-color:var(--form)}
-.opt:focus-visible{outline:2px solid var(--form);outline-offset:2px}
-.bub{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--form);display:grid;place-items:center;
-  font-family:var(--f-display);font-weight:700;font-size:14px;color:var(--form)}
-.opt.pick .bub{background:var(--lead);border-color:var(--lead);color:var(--sheet)}
-.opt.right{background:var(--ok-soft);border-color:var(--ok)}
-.opt.right .bub{background:var(--ok);border-color:var(--ok);color:var(--sheet)}
-.opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
-.opt.wrong .bub{background:var(--bad);border-color:var(--bad);color:var(--sheet)}
-.opt:disabled{cursor:default}
-.why{font-size:16px;color:var(--muted);border-left:3px solid var(--form);padding-left:12px;margin:0}
-.why b{color:var(--ink)}
-.btn{align-self:flex-end;font-family:var(--f-display);font-weight:700;font-size:17px;letter-spacing:.1em;text-transform:uppercase;
-  background:var(--form);color:var(--sheet);border:0;border-radius:6px;padding:12px 22px;cursor:pointer;touch-action:manipulation}
-.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.btn.ghost{background:transparent;color:var(--form);border:1.5px solid var(--form)}
-textarea{font:inherit;font-size:17px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px;min-height:140px;resize:vertical;width:100%;box-sizing:border-box}
-textarea:focus{outline:2px solid var(--form);outline-offset:1px}
-.note{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
-.score{font-family:var(--f-display);font-weight:700;font-size:72px;line-height:1;color:var(--form);font-variant-numeric:tabular-nums}
-.score span{font-size:32px;color:var(--muted)}
-.review{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none}
-.review li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:10px 0;border-top:1px solid var(--rule);font-size:15px}
-.review .m{font-family:var(--f-mono);font-weight:600}
-.review .m.ok{color:var(--ok)} .review .m.bad{color:var(--bad)}
-.review .a{color:var(--muted)}
-.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-p{margin:0}
-@media (prefers-reduced-motion:no-preference){.card{animation:in .25s ease-out}@keyframes in{from{transform:translateY(6px)}to{transform:none}}}
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-body{margin:0}
-[hidden]{display:none!important}
 </style>
 </head>
 <body>
 
+<a class="skip" href="#app">Skip to the quiz</a>
 <div class="wrap">
-  <header>
-    <div class="brand">Know-It-All<small>General knowledge · 20 questions</small></div>
-    <div class="meta" id="meta">Q 1 / 20 · Score 0</div>
+  <header class="bar">
+    <span class="mark" translate="no">Know-It-All</span>
+    <span class="meta" id="meta" aria-live="polite">Q 1 / 20 · Score 0</span>
   </header>
-  <div class="track" id="track"></div>
-  <main id="app"></main>
+  <div class="track" id="track" aria-hidden="true"></div>
+  <main id="app" tabindex="-1"></main>
 </div>
 
 <script>
@@ -113,49 +88,65 @@ const Q=[
  {s:"Travel",q:"Which country gets the most international tourists?",a:"France",w:["The United States","Spain","Italy"],x:"France gets about 100 million foreign visitors a year. Spain is usually second."}
 ];
 const L="ABCD", app=document.getElementById("app"), meta=document.getElementById("meta"), track=document.getElementById("track");
+const RM=matchMedia("(prefers-reduced-motion: reduce)");
+const SVG={ok:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  bad:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>'};
 let order, i, score, log;
 function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
-function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
-function drawTrack(){track.style.gridTemplateColumns=`repeat(${Q.length},1fr)`;track.innerHTML="";for(let k=0;k<Q.length;k++){const b=el("i");if(k<log.length)b.className=log[k].ok?"ok":"bad";else if(k===i)b.className="now";track.append(b)}}
-function start(){order=shuffle(Q).map(q=>({...q,c:shuffle([q.a,...q.w])}));i=0;score=0;log=[];ask()}
+function el(t,c,txt){const e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e}
+function icon(k){const t=document.createElement("template");t.innerHTML=SVG[k];return t.content.firstChild}
+function badge(kind,text){const b=el("span","badge");b.append(icon(kind),text);return b}
+const rise=e=>{e.setAttribute("data-rise","");return e};
+function screen(...parts){const c=el("section","scr");c.append(...parts);c.querySelectorAll("[data-rise]").forEach((e,k)=>e.style.setProperty("--i",Math.min(k,8)));app.replaceChildren(c);return c}
+function drawTrack(){track.innerHTML="";for(let k=0;k<Q.length;k++){const b=el("i");if(k<log.length)b.className=log[k].ok?"ok":"bad";else if(k===i)b.className="now";track.append(b)}}
+function start(){order=shuffle(Q).map(q=>({...q,c:shuffle([q.a,...q.w])}));i=0;score=0;log=[];track.hidden=false;ask();scrollTo(0,0)}
 function ask(){
   const q=order[i];meta.textContent=`Q ${i+1} / ${Q.length} · Score ${score}`;drawTrack();
-  const c=el("section","card");
-  c.append(el("div","qno",`Question ${i+1} <span class="subj">· ${q.s}</span>`),el("h1",null,q.q));
+  const cap=el("p","cap",`Question ${i+1} of ${Q.length} · `);cap.append(el("b",null,q.s));
+  const side=el("div","side");side.append(rise(el("h1","q",q.q)),rise(cap));
   const opts=el("div","opts");
-  q.c.forEach((t,k)=>{const b=el("button","opt");b.id=`opt-${i}-${k}`;b.append(el("span","bub",L[k]),el("span",null,t));
-    b.onclick=()=>answer(k,opts,c);opts.append(b)});
-  c.append(opts);app.replaceChildren(c);
+  q.c.forEach((t,k)=>{const b=el("button","opt");b.id=`opt-${i}-${k}`;b.dataset.k=k;b.style.setProperty("--k",k);
+    b.append(el("span","k",L[k]),el("span","t",t));b.onclick=()=>answer(k,opts,side);opts.append(b)});
+  const a=el("div","ask");a.append(side,opts);screen(a);
 }
-function answer(k,opts,c){
+function answer(k,opts,side){
   const q=order[i],ok=q.c[k]===q.a;if(ok)score++;log.push({ok,q});
-  [...opts.children].forEach((b,j)=>{b.disabled=true;if(q.c[j]===q.a)b.classList.add("right");else if(j===k)b.classList.add("wrong")});
-  opts.children[k].classList.add("pick");
-  c.append(el("p","why",`<b>${ok?"Correct.":"Answer: "+q.a+"."}</b> ${q.x}`));
-  const n=el("button","btn",i+1<Q.length?"Next":"Continue");n.id="next";
-  n.onclick=()=>{i++;i<Q.length?ask():hazel()};c.append(n);n.focus({preventScroll:true});
+  opts.classList.add("revealed");
+  [...opts.children].forEach((b,j)=>{b.disabled=true;
+    if(q.c[j]===q.a){b.classList.add("right");b.append(badge("ok",j===k?"Your pick":"Answer"))}
+    else if(j===k){b.classList.add("wrong");b.append(badge("bad","Your pick"))}
+    else b.classList.add("dim")});
+  const v=el("div","verdict "+(ok?"ok":"bad"));v.setAttribute("role","status");
+  v.append(el("span","p",ok?"Nice. One more point.":`The answer is ${q.a}.`),el("span","w",ok?"Correct":"Not quite"));
+  const why=el("p","why");why.append(el("b",null,ok?"Correct. ":"Answer: "+q.a+". "),q.x);
+  const n=el("button","btn wide",i+1<Q.length?"Next Question":"Final Question");n.id="next";
+  n.onclick=()=>{i++;i<Q.length?ask():hazel()};
+  const after=el("div","after");after.append(v,why,n);side.parentElement.append(after);
+  n.focus({preventScroll:true});n.scrollIntoView({block:"nearest",behavior:RM.matches?"auto":"smooth"});
   meta.textContent=`Q ${i+1} / ${Q.length} · Score ${score}`;drawTrack();
 }
 function hazel(){
   meta.textContent=`Done · Score ${score} / ${Q.length}`;drawTrack();
-  const c=el("section","card");
-  c.append(el("div","qno","Final question <span class=\"subj\">· Open response</span>"),el("h1",null,"What is hazel?"),
-    el("p","note","Not scored"));
-  const t=el("textarea");t.id="hazel";t.setAttribute("aria-label","Your answer");t.placeholder="Write your answer…";
-  const b=el("button","btn","Finish");b.id="finish";
+  const t=el("textarea");t.id="hazel";t.name="hazel";t.autocomplete="off";t.setAttribute("aria-label","Your answer");t.placeholder="Write your answer…";
+  const b=el("button","btn wide","Finish");b.id="finish";
   b.onclick=()=>{t.value="";results()};   // answer is intentionally discarded
-  c.append(t,b);app.replaceChildren(c);
+  const w=el("div","hz");w.style.cssText="display:flex;flex-direction:column;gap:18px";
+  w.append(rise(el("h1","shout","What is hazel?")),rise(el("p","note","Final question · Open response · Not scored")),
+    rise(el("p","lead","Type whatever you like. It isn't saved or sent anywhere.")),rise(t),rise(b));
+  screen(w);scrollTo(0,0);
 }
 function results(){
   const pct=Math.round(score/Q.length*100);
   const verdict=pct>=90?"Certified know-it-all.":pct>=75?"Seriously sharp.":pct>=60?"Solid. You know your stuff.":pct>=40?"Not bad at all.":"Tough one. Try it again?";
-  const c=el("section","card");
-  c.append(el("div","qno","Results"),el("div","score",`${score}<span> / ${Q.length}</span>`),el("p",null,`${pct}% · ${verdict}`));
-  const ul=el("ul","review");
-  log.forEach((r,k)=>{const li=el("li");li.append(el("span","m "+(r.ok?"ok":"bad"),r.ok?"✓":"✗"),
-    el("div",null,`${k+1}. ${r.q.q}<br><span class="a">${r.q.a}</span>`));ul.append(li)});
-  const row=el("div","row"),b=el("button","btn","Take it again");b.id="again";b.onclick=start;row.append(b);
-  c.append(ul,row);app.replaceChildren(c);
+  meta.textContent=`Done · Score ${score} / ${Q.length}`;track.hidden=true;
+  const sc=el("div","score");sc.setAttribute("aria-label",`${score} out of ${Q.length}`);sc.append(el("span","n",String(score)),el("span","of",`/ ${Q.length}`));
+  const p=el("p","pct");p.append(el("b",null,`${pct}%. `),verdict);
+  const again=el("button","btn wide","Take It Again");again.id="again";again.onclick=start;
+  const top=el("div","top");top.append(el("h1","sr","Your results"),rise(sc),rise(p),rise(again));
+  const ul=el("ol","review");ul.setAttribute("aria-label","Your answers");
+  log.forEach((r,k)=>{const li=el("li"),m=el("span","m "+(r.ok?"ok":"bad"));m.append(icon(r.ok?"ok":"bad"),el("span","sr",r.ok?"Right":"Wrong"));
+    const d=el("div","qq",`${r.q.q}`);d.append(el("span","a",r.q.a));li.append(m,d);ul.append(li)});
+  const res=el("div","res");res.append(top,rise(ul));screen(res);scrollTo(0,0);
 }
 start();
 </script>
