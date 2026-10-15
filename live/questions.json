@@ -1,332 +1,222 @@
 [
  {
-  "s": "Travel",
-  "q": "Why do airplane windows have rounded corners?",
-  "a": "Square corners concentrate stress and start cracks",
+  "s": "Geography",
+  "q": "Which country has the longest coastline in the world?",
+  "a": "Canada",
   "w": [
-   "Rounded glass is cheaper to make",
-   "They give passengers a wider view",
-   "Square windows fog up faster"
+   "Russia",
+   "Indonesia",
+   "Australia"
   ],
-  "x": "The de Havilland Comet crashes of 1954 taught the industry how fast metal fatigue cracks grow from sharp corners."
- },
- {
-  "s": "Around the house",
-  "q": "At what frequency does household power alternate in the United States?",
-  "a": "60 Hz",
-  "w": [
-   "50 Hz",
-   "120 Hz",
-   "100 Hz"
-  ],
-  "x": "Most of Europe, Asia and Africa use 50 Hz. Japan uses both, split down the middle of the country."
- },
- {
-  "s": "Science",
-  "q": "Which metal is liquid at room temperature?",
-  "a": "Mercury",
-  "w": [
-   "Gallium",
-   "Lead",
-   "Sodium"
-  ],
-  "x": "Gallium is the trap: it melts at about 30 °C, so it turns liquid in your hand, but not on a table."
- },
- {
-  "s": "Around town",
-  "q": "Why are most manhole covers round?",
-  "a": "A circle can't fall through its own opening",
-  "w": [
-   "Round covers are cheaper to cast",
-   "They're easier to drive over",
-   "Round holes are faster to dig"
-  ],
-  "x": "A square cover can slip through diagonally. A round one is the same width in every direction."
- },
- {
-  "s": "Landmarks",
-  "q": "What type of bridge is the Golden Gate Bridge?",
-  "a": "Suspension",
-  "w": [
-   "Cable-stayed",
-   "Cantilever",
-   "Arch"
-  ],
-  "x": "The deck hangs from two main cables draped over the towers. In a cable-stayed bridge, the cables run straight from the towers to the deck."
- },
- {
-  "s": "Around the house",
-  "q": "Which gas was usually sealed inside old-fashioned incandescent light bulbs?",
-  "a": "Argon",
-  "w": [
-   "Helium",
-   "Neon",
-   "Oxygen"
-  ],
-  "x": "An inert gas slows the tungsten filament from evaporating. Oxygen would burn it out almost instantly."
- },
- {
-  "s": "Travel",
-  "q": "What color is an airplane's “black box” flight recorder?",
-  "a": "Bright orange",
-  "w": [
-   "Black",
-   "Silver",
-   "Yellow and black stripes"
-  ],
-  "x": "Orange makes it easier to find in wreckage. The name probably comes from early recorders' dark casings."
- },
- {
-  "s": "History",
-  "q": "The unit of power, the watt, is named after which inventor?",
-  "a": "James Watt",
-  "w": [
-   "Alessandro Volta",
-   "James Joule",
-   "Thomas Edison"
-  ],
-  "x": "Watt's steam engine improvements drove the Industrial Revolution. He also coined “horsepower” to sell his engines."
- },
- {
-  "s": "Tech",
-  "q": "What is the minimum number of satellites a GPS receiver needs to find its position in 3D?",
-  "a": "4",
-  "w": [
-   "3",
-   "2",
-   "6"
-  ],
-  "x": "Three would be enough if your phone had a perfect clock. The fourth satellite solves for the clock error."
- },
- {
-  "s": "Landmarks",
-  "q": "The Eiffel Tower was originally built as…",
-  "a": "a temporary entrance arch for a World's Fair",
-  "w": [
-   "a radio broadcasting tower",
-   "a monument to the French Revolution",
-   "an observation tower for the French army"
-  ],
-  "x": "It was built for the 1889 Exposition with a 20-year permit. Being useful as a radio antenna helped save it."
- },
- {
-  "s": "Landmarks",
-  "q": "Why does the Leaning Tower of Pisa lean?",
-  "a": "Soft ground under one side of its foundation",
-  "w": [
-   "An earthquake in the 1600s",
-   "It was designed to lean",
-   "Bombing damage in World War II"
-  ],
-  "x": "It started tilting during construction in the 1170s, when the first floors sank into soft clay."
- },
- {
-  "s": "Science",
-  "q": "What is the main ingredient in ordinary window glass?",
-  "a": "Sand (silica)",
-  "w": [
-   "Limestone",
-   "Salt",
-   "Quartz crystals from mines"
-  ],
-  "x": "Silica sand is melted with soda ash and lime, which lower its melting point."
- },
- {
-  "s": "Travel",
-  "q": "Which country holds the speed record for a train running on regular wheels and rails?",
-  "a": "France",
-  "w": [
-   "Japan",
-   "China",
-   "Germany"
-  ],
-  "x": "A French TGV hit 574.8 km/h in 2007. Japan's record of 603 km/h is for a maglev, which floats instead of using wheels."
- },
- {
-  "s": "Science",
-  "q": "Roughly how fast does sound travel through air at sea level?",
-  "a": "About 767 mph",
-  "w": [
-   "About 343 mph",
-   "About 1,100 mph",
-   "About 500 mph"
-  ],
-  "x": "That's about 343 meters per second, which is where the 343 trap comes from."
- },
- {
-  "s": "Around the house",
-  "q": "Which element makes stainless steel “stainless”?",
-  "a": "Chromium",
-  "w": [
-   "Nickel",
-   "Zinc",
-   "Carbon"
-  ],
-  "x": "At least 10.5% chromium forms a thin oxide layer that heals itself when scratched."
- },
- {
-  "s": "Tech",
-  "q": "QR codes were invented in Japan in 1994 to track what?",
-  "a": "Car parts in factories",
-  "w": [
-   "Train tickets",
-   "Grocery prices",
-   "Mail packages"
-  ],
-  "x": "Denso Wave, a Toyota supplier, needed something faster to scan than barcodes on the assembly line."
- },
- {
-  "s": "History",
-  "q": "Who is often called the first computer programmer?",
-  "a": "Ada Lovelace",
-  "w": [
-   "Alan Turing",
-   "Grace Hopper",
-   "Charles Babbage"
-  ],
-  "x": "In 1843 she published an algorithm for Charles Babbage's Analytical Engine, a machine that was never finished."
- },
- {
-  "s": "Around town",
-  "q": "Why are car tires black?",
-  "a": "Carbon black is added to make them stronger",
-  "w": [
-   "Natural rubber is black",
-   "Black dye hides dirt",
-   "Black rubber grips the road better when hot"
-  ],
-  "x": "Natural rubber is milky white. Carbon black adds strength and blocks UV light, which makes tires last far longer."
- },
- {
-  "s": "Science",
-  "q": "What is the most common element in Earth's crust?",
-  "a": "Oxygen",
-  "w": [
-   "Silicon",
-   "Iron",
-   "Aluminum"
-  ],
-  "x": "Oxygen is about 46% of the crust by mass, locked up in rocks as silicates and oxides. Silicon is second."
- },
- {
-  "s": "Tech",
-  "q": "What does “Wi-Fi” stand for?",
-  "a": "Nothing. It's a brand name.",
-  "w": [
-   "Wireless Fidelity",
-   "Wireless Fiber",
-   "Wide Field"
-  ],
-  "x": "A branding firm coined it in 1999 to sound like Hi-Fi. “Wireless Fidelity” was attached afterward."
- },
- {
-  "s": "Inventions",
-  "q": "What inspired the invention of Velcro?",
-  "a": "Burrs stuck to a dog's fur",
-  "w": [
-   "A bird's feathers",
-   "A gecko's feet",
-   "Fishing nets"
-  ],
-  "x": "George de Mestral looked at burdock burrs under a microscope after a walk in 1941 and saw tiny hooks."
- },
- {
-  "s": "Travel",
-  "q": "How does the Panama Canal get ships across Panama?",
-  "a": "Locks lift them up to a lake above sea level",
-  "w": [
-   "It's a straight sea-level cut",
-   "Ships are carried on rail cars",
-   "Tides push them through"
-  ],
-  "x": "Ships rise about 26 meters to Gatun Lake and are lowered again on the other side."
- },
- {
-  "s": "Inventions",
-  "q": "Which of these was invented first?",
-  "a": "The fax machine",
-  "w": [
-   "The telephone",
-   "The light bulb",
-   "The radio"
-  ],
-  "x": "Alexander Bain patented a fax machine in 1843, more than 30 years before the telephone in 1876."
- },
- {
-  "s": "Around town",
-  "q": "Why do bridges have gaps called expansion joints?",
-  "a": "The bridge grows and shrinks with temperature",
-  "w": [
-   "To let rainwater drain",
-   "To reduce traffic noise",
-   "To make repairs easier"
-  ],
-  "x": "A long steel bridge can change length by more than a meter between winter and summer."
+  "x": "Canada's coastline is about 202,000 km, thanks to its thousands of Arctic islands. That's more than five times around the Equator."
  },
  {
   "s": "Space",
-  "q": "About how long does sunlight take to reach Earth?",
-  "a": "8 minutes",
+  "q": "Which planet rotates on its side?",
+  "a": "Uranus",
   "w": [
-   "8 seconds",
-   "1 hour",
-   "1 day"
+   "Neptune",
+   "Saturn",
+   "Venus"
   ],
-  "x": "It's about 8 minutes and 20 seconds, so the Sun you see is how it looked 8 minutes ago."
+  "x": "Uranus is tilted about 98°, probably from a huge collision long ago, so each pole gets about 42 years of daylight."
  },
  {
-  "s": "Tech",
-  "q": "In which decade was the first email sent?",
-  "a": "The 1970s",
+  "s": "Culture",
+  "q": "What is the national animal of Scotland?",
+  "a": "The unicorn",
   "w": [
-   "The 1960s",
-   "The 1980s",
-   "The 1990s"
+   "The red deer",
+   "The golden eagle",
+   "The lion"
   ],
-  "x": "Ray Tomlinson sent it in 1971 on ARPANET, and picked the @ sign to separate the user from the computer."
+  "x": "It's been a Scottish royal symbol since the 1300s and still appears on the UK coat of arms."
  },
  {
-  "s": "Inventions",
-  "q": "The microwave oven was invented after an engineer working on what noticed a candy bar melting in his pocket?",
-  "a": "Radar equipment",
+  "s": "Geography",
+  "q": "In which country is Timbuktu?",
+  "a": "Mali",
   "w": [
-   "Television cameras",
-   "Jet engines",
-   "Refrigerators"
+   "Morocco",
+   "Niger",
+   "Sudan"
   ],
-  "x": "Percy Spencer was working on radar magnetrons at Raytheon in 1945."
+  "x": "It was a major center of trade and Islamic scholarship in the 1400s and 1500s, on the edge of the Sahara."
  },
  {
-  "s": "Landmarks",
-  "q": "Why is the Statue of Liberty green?",
-  "a": "Its copper skin has weathered",
+  "s": "Geography",
+  "q": "How many time zones does China officially use?",
+  "a": "One",
   "w": [
-   "It was painted green",
-   "Algae grows on it",
-   "Green glass was mixed into the metal"
+   "Three",
+   "Four",
+   "Five"
   ],
-  "x": "It arrived copper-brown in 1886 and turned green within about 30 years. The patina now protects the metal underneath."
+  "x": "China spans about five time zones' width but runs on Beijing time, so the sun can rise around 10 a.m. in the far west."
  },
  {
-  "s": "Around town",
-  "q": "Concrete hardens because it…",
-  "a": "reacts chemically with water",
+  "s": "Geography",
+  "q": "Measured from base to peak, which is the tallest mountain on Earth?",
+  "a": "Mauna Kea",
   "w": [
-   "dries out in the air",
-   "cools down after mixing",
-   "absorbs carbon dioxide"
+   "Mount Everest",
+   "K2",
+   "Denali"
   ],
-  "x": "This reaction is called hydration. Concrete even sets underwater, and it keeps getting stronger for years."
+  "x": "Mauna Kea rises about 10,200 m from the Pacific floor. Everest is the highest above sea level, at 8,849 m."
  },
  {
-  "s": "Sports",
-  "q": "Why do golf balls have dimples?",
-  "a": "They reduce drag so the ball flies farther",
+  "s": "Art",
+  "q": "Who painted The Persistence of Memory, the one with the melting clocks?",
+  "a": "Salvador Dalí",
   "w": [
-   "They make the ball easier to grip",
-   "They're left over from the molding process",
-   "They make the ball spin less"
+   "René Magritte",
+   "Pablo Picasso",
+   "Joan Miró"
   ],
-  "x": "The dimples make the air around the ball turbulent, which keeps it hugging the ball and shrinks the drag-causing wake behind it."
+  "x": "Dalí painted it in 1931. It hangs in the Museum of Modern Art in New York."
+ },
+ {
+  "s": "History",
+  "q": "The shortest war in recorded history lasted under an hour. Who fought it?",
+  "a": "Britain and Zanzibar",
+  "w": [
+   "France and Monaco",
+   "Spain and Portugal",
+   "Italy and San Marino"
+  ],
+  "x": "In 1896 the Anglo-Zanzibar War lasted between 38 and 45 minutes."
+ },
+ {
+  "s": "History",
+  "q": "Which country has the most pyramids?",
+  "a": "Sudan",
+  "w": [
+   "Egypt",
+   "Mexico",
+   "Peru"
+  ],
+  "x": "Sudan's ancient Nubian kingdoms built more than 200 pyramids, almost twice as many as Egypt."
+ },
+ {
+  "s": "History",
+  "q": "Who was the first woman to fly solo across the Atlantic?",
+  "a": "Amelia Earhart",
+  "w": [
+   "Bessie Coleman",
+   "Harriet Quimby",
+   "Jacqueline Cochran"
+  ],
+  "x": "She did it in 1932, five years after Lindbergh. Harriet Quimby was the first woman to fly across the English Channel."
+ },
+ {
+  "s": "History",
+  "q": "Which of the Seven Wonders of the Ancient World is still standing?",
+  "a": "The Great Pyramid of Giza",
+  "w": [
+   "The Colossus of Rhodes",
+   "The Lighthouse of Alexandria",
+   "The Hanging Gardens of Babylon"
+  ],
+  "x": "It's also the oldest of the seven, by about 2,000 years."
+ },
+ {
+  "s": "Geography",
+  "q": "What is the capital of Turkey?",
+  "a": "Ankara",
+  "w": [
+   "Istanbul",
+   "Izmir",
+   "Antalya"
+  ],
+  "x": "Atatürk made Ankara the capital in 1923. Istanbul is the largest city."
+ },
+ {
+  "s": "Space",
+  "q": "Who was the second person to walk on the Moon?",
+  "a": "Buzz Aldrin",
+  "w": [
+   "Michael Collins",
+   "Pete Conrad",
+   "Alan Shepard"
+  ],
+  "x": "Aldrin followed Neil Armstrong out about 19 minutes later. Michael Collins stayed in orbit."
+ },
+ {
+  "s": "Space",
+  "q": "What is the largest moon in the solar system?",
+  "a": "Ganymede",
+  "w": [
+   "Titan",
+   "Callisto",
+   "Earth's Moon"
+  ],
+  "x": "Jupiter's Ganymede is bigger than the planet Mercury. Saturn's Titan is a close second."
+ },
+ {
+  "s": "History",
+  "q": "Who is the longest-reigning British monarch?",
+  "a": "Elizabeth II",
+  "w": [
+   "Victoria",
+   "George III",
+   "Henry VIII"
+  ],
+  "x": "She reigned for 70 years, from 1952 to 2022. Victoria is second, at 63 years."
+ },
+ {
+  "s": "Music",
+  "q": "Which composer wrote his Ninth Symphony while almost completely deaf?",
+  "a": "Ludwig van Beethoven",
+  "w": [
+   "Wolfgang Amadeus Mozart",
+   "Johann Sebastian Bach",
+   "Joseph Haydn"
+  ],
+  "x": "At the 1824 premiere, he had to be turned around to see the audience applauding."
+ },
+ {
+  "s": "History",
+  "q": "Which city was once called New Amsterdam?",
+  "a": "New York",
+  "w": [
+   "Boston",
+   "Albany",
+   "Philadelphia"
+  ],
+  "x": "The English took it from the Dutch in 1664 and renamed it after the Duke of York."
+ },
+ {
+  "s": "Biology",
+  "q": "During protein synthesis, which molecule carries amino acids to the ribosome?",
+  "a": "Transfer RNA (tRNA)",
+  "w": [
+   "Messenger RNA (mRNA)",
+   "Ribosomal RNA (rRNA)",
+   "DNA polymerase"
+  ],
+  "x": "Each tRNA has an anticodon that pairs with a codon on the mRNA, so the right amino acid gets added."
+ },
+ {
+  "s": "Electricity",
+  "q": "Two 10-ohm resistors connected in parallel have a combined resistance of…",
+  "a": "5 ohms",
+  "w": [
+   "20 ohms",
+   "10 ohms",
+   "0.2 ohms"
+  ],
+  "x": "In parallel, the current has two paths, so the resistance drops. Equal resistors in parallel give half the value. In series, it would be 20."
+ },
+ {
+  "s": "Travel",
+  "q": "Which country gets the most international tourists?",
+  "a": "France",
+  "w": [
+   "The United States",
+   "Spain",
+   "Italy"
+  ],
+  "x": "France gets about 100 million foreign visitors a year. Spain is usually second."
  }
 ]
