@@ -92,7 +92,9 @@ textarea{min-height:150px;resize:vertical;line-height:1.45}
 .opt[data-k="1"]{--cc:var(--a1);--ci:var(--a1-ink)} .opt[data-k="2"]{--cc:var(--a2);--ci:var(--a2-ink)} .opt[data-k="3"]{--cc:var(--a3);--ci:var(--a3-ink)}
 .opt .k{font-family:var(--f-display);font-weight:800;font-size:44px;line-height:.8;width:30px;text-align:center;padding-top:4px}
 .opt .t{font-weight:600;font-size:20px;line-height:1.25;overflow-wrap:break-word;word-break:normal;hyphens:manual}
-.opt .k{grid-row:1 / span 3;align-self:center}
+.opt .k{grid-row:1;align-self:center}
+.opt:has(>:nth-child(3)) .k{grid-row:1 / span 2}
+.opt:has(>:nth-child(4)) .k{grid-row:1 / span 3}
 .opt .badge{grid-column:2;justify-self:start;display:inline-flex;align-items:center;gap:6px;background:var(--ci);color:var(--cc);border-radius:999px;padding:5px 12px 5px 8px;font-weight:600;font-size:16px;white-space:nowrap}
 .opt .badge svg{width:20px;height:20px;flex:none}
 .opt:active:not(:disabled){transform:scale(.97)}
