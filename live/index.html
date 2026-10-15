@@ -195,8 +195,8 @@ function render(){
   if(!S)return;
   if(S.phase!=="hazel"&&S.phase!=="final")hazelSent=false;
   if(S.phase==="lobby"||S.phase==="hazel"||S.phase==="final")picks={};
-  const M=me(),sig=JSON.stringify(S)+hazelSent+pid+JSON.stringify(picks);
-  if(sig===lastSig)return;lastSig=sig;
+  const M=me(),sig=JSON.stringify(S,(k,x)=>k==="elapsed"?undefined:x)+hazelSent+pid+JSON.stringify(picks);
+  if(sig===lastSig)return tick();lastSig=sig;
   const n=S.players.length;
   meta.textContent=S.phase==="lobby"?`${n} player${n===1?"":"s"}`:
     (S.phase==="question"||S.phase==="reveal")?`Q ${S.qi+1} / ${S.n}${M?` · ${M.score} pts`:""}`:M?`${M.score} pts`:"";
@@ -288,7 +288,8 @@ function question(c,M){
   c.append(lbl,el("h1",null,q.q));
   const waiting=S.players.filter(p=>p.waiting);
   if(HOST){
-    c.append(opts(q),el("div","lbl",`Answered · ${S.players.length-waiting.length} / ${S.players.length} · ${q.elapsed}s`),
+    const al=el("div","lbl",`Answered · ${S.players.length-waiting.length} / ${S.players.length} · `),secs=el("span");secs.id="secs";al.append(secs);setTimeout(tick);
+    c.append(opts(q),al,
       chips(S.players,{kick:true,doneFn:p=>!p.waiting}));
     const b=el("button","btn ghost","Reveal now");b.id="force";b.onclick=()=>hostDo(n=>G.next(n));c.append(row(b));return;
   }
@@ -297,6 +298,7 @@ function question(c,M){
   c.append(opts(q,{pick:answered?M.pick:null,onPick:answered?null:k=>{picks[S.qi]=k;send({t:"answer",pid,k,qi:S.qi});lastSig="";render()}}));
   if(answered){const w=el("p","muted");w.id="waitline";c.append(w);setTimeout(waitLine)}
 }
+function tick(){const s=document.getElementById("secs");if(s&&S.q&&S.q.elapsed!=null)s.textContent=S.q.elapsed+"s"}
 function waitLine(){
   const w=document.getElementById("waitline");if(!w)return;
   const names=S.players.filter(p=>p.waiting&&p.id!==pid).map(p=>p.name);
