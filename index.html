@@ -34,7 +34,7 @@ header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;
 .brand{font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:.02em;text-transform:uppercase;color:var(--form);line-height:1}
 .brand small{display:block;font-weight:500;font-size:13px;letter-spacing:.14em;color:var(--muted);margin-top:4px}
 .meta{font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-.track{display:grid;grid-template-columns:repeat(20,1fr);gap:3px}
+.track{display:grid;gap:3px}
 .track i{height:6px;border-radius:2px;background:var(--rule)}
 .track i.ok{background:var(--ok)} .track i.bad{background:var(--bad)} .track i.now{background:var(--form)}
 .card{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:22px 20px;display:flex;flex-direction:column;gap:18px}
@@ -82,8 +82,8 @@ body{margin:0}
 
 <div class="wrap">
   <header>
-    <div class="brand">Know-It-All<small>General knowledge · 20 questions</small></div>
-    <div class="meta" id="meta">Q 1 / 20 · Score 0</div>
+    <div class="brand">Know-It-All<small>General knowledge · 30 questions</small></div>
+    <div class="meta" id="meta">Q 1 / 30 · Score 0</div>
   </header>
   <div class="track" id="track"></div>
   <main id="app"></main>
@@ -91,32 +91,42 @@ body{margin:0}
 
 <script>
 const Q=[
- {s:"Geography",q:"What is the capital of Canada?",a:"Ottawa",w:["Toronto","Montreal","Vancouver"],x:"Queen Victoria picked Ottawa in 1857, partly as a compromise between English and French Canada."},
- {s:"Space",q:"Which is the hottest planet in the solar system?",a:"Venus",w:["Mercury","Mars","Jupiter"],x:"Mercury is closer to the Sun, but Venus's thick CO₂ atmosphere traps heat at around 465 °C."},
- {s:"Biology",q:"What is the largest organ of the human body?",a:"The skin",w:["The liver","The brain","The lungs"],x:"Skin makes up about 15% of body weight. The liver is the largest internal organ."},
- {s:"History",q:"Who was the first woman to win a Nobel Prize?",a:"Marie Curie",w:["Rosalind Franklin","Mother Teresa","Dorothy Hodgkin"],x:"She won Physics in 1903 and Chemistry in 1911, and is still the only person with Nobels in two sciences."},
- {s:"Geography",q:"What is the longest mountain range on land?",a:"The Andes",w:["The Himalayas","The Rocky Mountains","The Ural Mountains"],x:"The Andes run about 7,000 km down South America. The Himalayas are the tallest, not the longest."},
- {s:"Chemistry",q:"Which element has the chemical symbol K?",a:"Potassium",w:["Krypton","Calcium","Phosphorus"],x:"K comes from its Latin name, kalium. Krypton is Kr."},
- {s:"Animals",q:"What is a group of crows called?",a:"A murder",w:["A parliament","A flock","A colony"],x:"A parliament is a group of owls."},
- {s:"History",q:"Which civilization built Machu Picchu?",a:"The Inca",w:["The Aztecs","The Maya","The Olmecs"],x:"It was built around 1450 in the Peruvian Andes, probably as an estate for the emperor Pachacuti."},
- {s:"Literature",q:"Who wrote Frankenstein?",a:"Mary Shelley",w:["Bram Stoker","Edgar Allan Poe","Charlotte Brontë"],x:"She started it at 18, during a ghost-story contest with Lord Byron at Lake Geneva in 1816."},
- {s:"Space",q:"What is the closest star to Earth?",a:"The Sun",w:["Proxima Centauri","Sirius","Alpha Centauri A"],x:"The Sun is a star. The next closest is Proxima Centauri, about 4.2 light-years away."},
- {s:"Math",q:"What is the only even prime number?",a:"2",w:["0","4","There isn't one"],x:"Every other even number is divisible by 2, so it can't be prime."},
- {s:"Geography",q:"Which river flows through Baghdad?",a:"The Tigris",w:["The Euphrates","The Nile","The Jordan"],x:"The Tigris and the Euphrates run side by side through Iraq, but Baghdad sits on the Tigris."},
- {s:"Music",q:"How many keys does a standard piano have?",a:"88",w:["76","92","84"],x:"There are 52 white keys and 36 black keys."},
- {s:"History",q:"In what year did King John agree to the Magna Carta?",a:"1215",w:["1066","1314","1492"],x:"It was sealed at Runnymede, not signed. 1066 is the Norman Conquest."},
- {s:"Science",q:"What is the most abundant element in the universe?",a:"Hydrogen",w:["Helium","Oxygen","Carbon"],x:"Hydrogen is about three quarters of all normal matter by mass. Helium is second."},
- {s:"Sports",q:"How long is a marathon?",a:"26.2 miles",w:["25 miles","24.8 miles","27.5 miles"],x:"That's 42.195 km, a distance fixed at the 1908 London Olympics."},
- {s:"Geography",q:"Which is the driest non-polar desert on Earth?",a:"The Atacama",w:["The Sahara","Death Valley","The Gobi"],x:"Some weather stations in Chile's Atacama have never recorded rain."},
- {s:"Biology",q:"What is the longest bone in the human body?",a:"The femur",w:["The tibia","The humerus","The spine"],x:"The thigh bone is roughly a quarter of a person's height."},
- {s:"History",q:"Who was the first emperor of Rome?",a:"Augustus",w:["Julius Caesar","Nero","Caligula"],x:"Julius Caesar was a dictator, never emperor. His heir Octavian became Augustus in 27 BC."},
- {s:"Animals",q:"What color is a polar bear's skin?",a:"Black",w:["White","Pink","Grey"],x:"The black skin absorbs heat. The fur isn't white either, but translucent."}
+ {s:"Travel",q:"Why do airplane windows have rounded corners?",a:"Square corners concentrate stress and start cracks",w:["Rounded glass is cheaper to make","They give passengers a wider view","Square windows fog up faster"],x:"The de Havilland Comet crashes of 1954 taught the industry how fast metal fatigue cracks grow from sharp corners."},
+ {s:"Around the house",q:"At what frequency does household power alternate in the United States?",a:"60 Hz",w:["50 Hz","120 Hz","100 Hz"],x:"Most of Europe, Asia and Africa use 50 Hz. Japan uses both, split down the middle of the country."},
+ {s:"Science",q:"Which metal is liquid at room temperature?",a:"Mercury",w:["Gallium","Lead","Sodium"],x:"Gallium is the trap: it melts at about 30 °C, so it turns liquid in your hand, but not on a table."},
+ {s:"Around town",q:"Why are most manhole covers round?",a:"A circle can't fall through its own opening",w:["Round covers are cheaper to cast","They're easier to drive over","Round holes are faster to dig"],x:"A square cover can slip through diagonally. A round one is the same width in every direction."},
+ {s:"Landmarks",q:"What type of bridge is the Golden Gate Bridge?",a:"Suspension",w:["Cable-stayed","Cantilever","Arch"],x:"The deck hangs from two main cables draped over the towers. In a cable-stayed bridge, the cables run straight from the towers to the deck."},
+ {s:"Around the house",q:"Which gas was usually sealed inside old-fashioned incandescent light bulbs?",a:"Argon",w:["Helium","Neon","Oxygen"],x:"An inert gas slows the tungsten filament from evaporating. Oxygen would burn it out almost instantly."},
+ {s:"Travel",q:"What color is an airplane's “black box” flight recorder?",a:"Bright orange",w:["Black","Silver","Yellow and black stripes"],x:"Orange makes it easier to find in wreckage. The name probably comes from early recorders' dark casings."},
+ {s:"History",q:"The unit of power, the watt, is named after which inventor?",a:"James Watt",w:["Alessandro Volta","James Joule","Thomas Edison"],x:"Watt's steam engine improvements drove the Industrial Revolution. He also coined “horsepower” to sell his engines."},
+ {s:"Tech",q:"What is the minimum number of satellites a GPS receiver needs to find its position in 3D?",a:"4",w:["3","2","6"],x:"Three would be enough if your phone had a perfect clock. The fourth satellite solves for the clock error."},
+ {s:"Landmarks",q:"The Eiffel Tower was originally built as…",a:"a temporary entrance arch for a World's Fair",w:["a radio broadcasting tower","a monument to the French Revolution","an observation tower for the French army"],x:"It was built for the 1889 Exposition with a 20-year permit. Being useful as a radio antenna helped save it."},
+ {s:"Landmarks",q:"Why does the Leaning Tower of Pisa lean?",a:"Soft ground under one side of its foundation",w:["An earthquake in the 1600s","It was designed to lean","Bombing damage in World War II"],x:"It started tilting during construction in the 1170s, when the first floors sank into soft clay."},
+ {s:"Science",q:"What is the main ingredient in ordinary window glass?",a:"Sand (silica)",w:["Limestone","Salt","Quartz crystals from mines"],x:"Silica sand is melted with soda ash and lime, which lower its melting point."},
+ {s:"Travel",q:"Which country holds the speed record for a train running on regular wheels and rails?",a:"France",w:["Japan","China","Germany"],x:"A French TGV hit 574.8 km/h in 2007. Japan's record of 603 km/h is for a maglev, which floats instead of using wheels."},
+ {s:"Science",q:"Roughly how fast does sound travel through air at sea level?",a:"About 767 mph",w:["About 343 mph","About 1,100 mph","About 500 mph"],x:"That's about 343 meters per second, which is where the 343 trap comes from."},
+ {s:"Around the house",q:"Which element makes stainless steel “stainless”?",a:"Chromium",w:["Nickel","Zinc","Carbon"],x:"At least 10.5% chromium forms a thin oxide layer that heals itself when scratched."},
+ {s:"Tech",q:"QR codes were invented in Japan in 1994 to track what?",a:"Car parts in factories",w:["Train tickets","Grocery prices","Mail packages"],x:"Denso Wave, a Toyota supplier, needed something faster to scan than barcodes on the assembly line."},
+ {s:"History",q:"Who is often called the first computer programmer?",a:"Ada Lovelace",w:["Alan Turing","Grace Hopper","Charles Babbage"],x:"In 1843 she published an algorithm for Charles Babbage's Analytical Engine, a machine that was never finished."},
+ {s:"Around town",q:"Why are car tires black?",a:"Carbon black is added to make them stronger",w:["Natural rubber is black","Black dye hides dirt","Black rubber grips the road better when hot"],x:"Natural rubber is milky white. Carbon black adds strength and blocks UV light, which makes tires last far longer."},
+ {s:"Science",q:"What is the most common element in Earth's crust?",a:"Oxygen",w:["Silicon","Iron","Aluminum"],x:"Oxygen is about 46% of the crust by mass, locked up in rocks as silicates and oxides. Silicon is second."},
+ {s:"Tech",q:"What does “Wi-Fi” stand for?",a:"Nothing. It's a brand name.",w:["Wireless Fidelity","Wireless Fiber","Wide Field"],x:"A branding firm coined it in 1999 to sound like Hi-Fi. “Wireless Fidelity” was attached afterward."},
+ {s:"Inventions",q:"What inspired the invention of Velcro?",a:"Burrs stuck to a dog's fur",w:["A bird's feathers","A gecko's feet","Fishing nets"],x:"George de Mestral looked at burdock burrs under a microscope after a walk in 1941 and saw tiny hooks."},
+ {s:"Travel",q:"How does the Panama Canal get ships across Panama?",a:"Locks lift them up to a lake above sea level",w:["It's a straight sea-level cut","Ships are carried on rail cars","Tides push them through"],x:"Ships rise about 26 meters to Gatun Lake and are lowered again on the other side."},
+ {s:"Inventions",q:"Which of these was invented first?",a:"The fax machine",w:["The telephone","The light bulb","The radio"],x:"Alexander Bain patented a fax machine in 1843, more than 30 years before the telephone in 1876."},
+ {s:"Around town",q:"Why do bridges have gaps called expansion joints?",a:"The bridge grows and shrinks with temperature",w:["To let rainwater drain","To reduce traffic noise","To make repairs easier"],x:"A long steel bridge can change length by more than a meter between winter and summer."},
+ {s:"Space",q:"About how long does sunlight take to reach Earth?",a:"8 minutes",w:["8 seconds","1 hour","1 day"],x:"It's about 8 minutes and 20 seconds, so the Sun you see is how it looked 8 minutes ago."},
+ {s:"Tech",q:"In which decade was the first email sent?",a:"The 1970s",w:["The 1960s","The 1980s","The 1990s"],x:"Ray Tomlinson sent it in 1971 on ARPANET, and picked the @ sign to separate the user from the computer."},
+ {s:"Inventions",q:"The microwave oven was invented after an engineer working on what noticed a candy bar melting in his pocket?",a:"Radar equipment",w:["Television cameras","Jet engines","Refrigerators"],x:"Percy Spencer was working on radar magnetrons at Raytheon in 1945."},
+ {s:"Landmarks",q:"Why is the Statue of Liberty green?",a:"Its copper skin has weathered",w:["It was painted green","Algae grows on it","Green glass was mixed into the metal"],x:"It arrived copper-brown in 1886 and turned green within about 30 years. The patina now protects the metal underneath."},
+ {s:"Around town",q:"Concrete hardens because it…",a:"reacts chemically with water",w:["dries out in the air","cools down after mixing","absorbs carbon dioxide"],x:"This reaction is called hydration. Concrete even sets underwater, and it keeps getting stronger for years."},
+ {s:"Sports",q:"Why do golf balls have dimples?",a:"They reduce drag so the ball flies farther",w:["They make the ball easier to grip","They're left over from the molding process","They make the ball spin less"],x:"The dimples make the air around the ball turbulent, which keeps it hugging the ball and shrinks the drag-causing wake behind it."}
 ];
 const L="ABCD", app=document.getElementById("app"), meta=document.getElementById("meta"), track=document.getElementById("track");
 let order, i, score, log;
 function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
 function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
-function drawTrack(){track.innerHTML="";for(let k=0;k<Q.length;k++){const b=el("i");if(k<log.length)b.className=log[k].ok?"ok":"bad";else if(k===i)b.className="now";track.append(b)}}
+function drawTrack(){track.style.gridTemplateColumns=`repeat(${Q.length},1fr)`;track.innerHTML="";for(let k=0;k<Q.length;k++){const b=el("i");if(k<log.length)b.className=log[k].ok?"ok":"bad";else if(k===i)b.className="now";track.append(b)}}
 function start(){order=shuffle(Q).map(q=>({...q,c:shuffle([q.a,...q.w])}));i=0;score=0;log=[];ask()}
 function ask(){
   const q=order[i];meta.textContent=`Q ${i+1} / ${Q.length} · Score ${score}`;drawTrack();
