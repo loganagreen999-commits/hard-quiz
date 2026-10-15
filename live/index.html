@@ -158,7 +158,8 @@ async function hostBoot(){
   publish();
 }
 function publish(force){
-  const v=G.view(Date.now()),s=JSON.stringify(v);
+  // the ticking timer stays on the host screen only, so phones don't redraw every second
+  const v=G.view(Date.now()),s=JSON.stringify(v,(k,x)=>k==="elapsed"?undefined:x);
   if(s!==lastPub||force){lastPub=s;if(client&&client.connected)client.publish(NS+room+"/state",s,{qos:1,retain:true});
     ls.set("kia.host",{room,bi,game:G.snapshot()})}
   S=v;render();
@@ -205,6 +206,11 @@ function render(){
     return show("join",joinScreen);
   }
   if(S.phase==="hazel"&&!HOST&&!M.hazel&&!hazelSent)return show("hazel",hazelScreen);
+  if(!HOST&&S.phase==="question"&&!M.late){        // keep the answer buttons stable; only the status line updates
+    const key=`q${S.qi}:${M.answered||M.pick!=null}`;
+    if(key===screenKey)return waitLine();
+    return show(key,c=>question(c,M));
+  }
   show(null,c=>({lobby,question,reveal,hazel:hazelWait,final})[S.phase](c,M));
 }
 function show(key,fn){
@@ -289,7 +295,12 @@ function question(c,M){
   if(M.late){c.append(el("p","muted","You joined mid-question. You're in from the next one."));return}
   const answered=M.answered||M.pick!=null;
   c.append(opts(q,{pick:answered?M.pick:null,onPick:answered?null:k=>{picks[S.qi]=k;send({t:"answer",pid,k,qi:S.qi});lastSig="";render()}}));
-  if(answered)c.append(el("p","muted",waiting.length?`Locked in. Waiting on ${waiting.filter(p=>p.id!==pid).map(p=>p.name).join(", ")||"the host"}.`:"Locked in."));
+  if(answered){const w=el("p","muted");w.id="waitline";c.append(w);setTimeout(waitLine)}
+}
+function waitLine(){
+  const w=document.getElementById("waitline");if(!w)return;
+  const names=S.players.filter(p=>p.waiting&&p.id!==pid).map(p=>p.name);
+  w.textContent=names.length?`Locked in. Waiting on ${names.join(", ")}.`:"Locked in.";
 }
 
 function reveal(c,M){
