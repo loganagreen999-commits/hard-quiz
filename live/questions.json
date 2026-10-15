@@ -1,222 +1,222 @@
 [
  {
   "s": "Geography",
-  "q": "What is the largest country in Africa by area?",
-  "a": "Algeria",
+  "q": "What is the capital of Switzerland?",
+  "a": "Bern",
   "w": [
-   "Democratic Republic of the Congo",
-   "Sudan",
-   "Libya"
+   "Zurich",
+   "Geneva",
+   "Basel"
   ],
-  "x": "Sudan held the title until South Sudan became independent in 2011, which left Algeria the largest."
+  "x": "Switzerland officially calls Bern its “federal city” rather than its capital. Zurich is the largest city."
+ },
+ {
+  "s": "Geography",
+  "q": "Which is the smallest of the world's five oceans?",
+  "a": "The Arctic Ocean",
+  "w": [
+   "The Southern Ocean",
+   "The Indian Ocean",
+   "The Atlantic Ocean"
+  ],
+  "x": "The Arctic is also the shallowest, and much of it is covered in sea ice."
+ },
+ {
+  "s": "History",
+  "q": "Who led the first expedition to reach the South Pole?",
+  "a": "Roald Amundsen",
+  "w": [
+   "Robert Falcon Scott",
+   "Ernest Shackleton",
+   "Edmund Hillary"
+  ],
+  "x": "Amundsen's Norwegian team got there on December 14, 1911. Scott arrived about five weeks later and died on the way back."
+ },
+ {
+  "s": "Geography",
+  "q": "Which African country has the largest population?",
+  "a": "Nigeria",
+  "w": [
+   "Ethiopia",
+   "Egypt",
+   "South Africa"
+  ],
+  "x": "Nigeria has more than 220 million people. Ethiopia is second."
+ },
+ {
+  "s": "History",
+  "q": "What is the oldest university in the English-speaking world?",
+  "a": "Oxford",
+  "w": [
+   "Cambridge",
+   "Harvard",
+   "St Andrews"
+  ],
+  "x": "Teaching at Oxford dates back to at least 1096. Cambridge was founded in 1209 by scholars leaving Oxford."
+ },
+ {
+  "s": "Music",
+  "q": "Who composed The Four Seasons?",
+  "a": "Antonio Vivaldi",
+  "w": [
+   "Johann Sebastian Bach",
+   "George Frideric Handel",
+   "Arcangelo Corelli"
+  ],
+  "x": "It's a set of four violin concertos, published in 1725, one for each season."
+ },
+ {
+  "s": "History",
+  "q": "Which treaty ended World War I between Germany and the Allies?",
+  "a": "The Treaty of Versailles",
+  "w": [
+   "The Treaty of Brest-Litovsk",
+   "The Treaty of Trianon",
+   "The Treaty of Paris"
+  ],
+  "x": "It was signed in 1919. Brest-Litovsk was Russia's separate peace with Germany in 1918, and Trianon dealt with Hungary."
+ },
+ {
+  "s": "Geography",
+  "q": "What is the largest island in the world?",
+  "a": "Greenland",
+  "w": [
+   "New Guinea",
+   "Borneo",
+   "Madagascar"
+  ],
+  "x": "Australia is counted as a continent, so Greenland, at about 2.2 million km², is the largest island."
  },
  {
   "s": "Space",
-  "q": "Which planet has the shortest day?",
-  "a": "Jupiter",
+  "q": "Which planet is closest to Earth in size?",
+  "a": "Venus",
   "w": [
+   "Mars",
    "Mercury",
-   "Earth",
-   "Saturn"
+   "Neptune"
   ],
-  "x": "Jupiter spins once every 9 hours 56 minutes, even though it's the biggest planet."
- },
- {
-  "s": "Geography",
-  "q": "What is the capital of New Zealand?",
-  "a": "Wellington",
-  "w": [
-   "Auckland",
-   "Christchurch",
-   "Queenstown"
-  ],
-  "x": "Auckland is much bigger, but Wellington became the capital in 1865 because it sits in the middle of the country."
- },
- {
-  "s": "History",
-  "q": "In what year is the Western Roman Empire usually said to have fallen?",
-  "a": "476 AD",
-  "w": [
-   "410 AD",
-   "1453 AD",
-   "27 BC"
-  ],
-  "x": "That's when Odoacer deposed the last western emperor. 410 is the sack of Rome, and 1453 is the fall of the Eastern Empire."
- },
- {
-  "s": "History",
-  "q": "Who developed the first widely used polio vaccine?",
-  "a": "Jonas Salk",
-  "w": [
-   "Louis Pasteur",
-   "Albert Sabin",
-   "Edward Jenner"
-  ],
-  "x": "It was declared safe in 1955. Sabin's oral vaccine came a few years later, and Jenner made the first vaccine, for smallpox."
- },
- {
-  "s": "Geography",
-  "q": "What is the longest river in Europe?",
-  "a": "The Volga",
-  "w": [
-   "The Danube",
-   "The Rhine",
-   "The Dnieper"
-  ],
-  "x": "The Volga runs about 3,500 km through Russia to the Caspian Sea. The Danube is second."
- },
- {
-  "s": "Art",
-  "q": "Who painted Girl with a Pearl Earring?",
-  "a": "Johannes Vermeer",
-  "w": [
-   "Rembrandt",
-   "Jan van Eyck",
-   "Frans Hals"
-  ],
-  "x": "Vermeer painted it around 1665 in Delft. It hangs in the Mauritshuis in The Hague."
- },
- {
-  "s": "Food",
-  "q": "Which country produces the most coffee?",
-  "a": "Brazil",
-  "w": [
-   "Colombia",
-   "Vietnam",
-   "Ethiopia"
-  ],
-  "x": "Brazil grows about a third of the world's coffee. Vietnam is second."
- },
- {
-  "s": "Space",
-  "q": "What makes Mars red?",
-  "a": "Iron oxide (rust) in its dust",
-  "w": [
-   "Its red sun",
-   "Copper in its rocks",
-   "Methane in its atmosphere"
-  ],
-  "x": "Iron in the surface rock oxidized over billions of years, and winds spread the fine rusty dust everywhere."
- },
- {
-  "s": "History",
-  "q": "The Rosetta Stone was the key to reading which writing system?",
-  "a": "Egyptian hieroglyphs",
-  "w": [
-   "Cuneiform",
-   "Linear B",
-   "Mayan glyphs"
-  ],
-  "x": "The same decree appears in hieroglyphs, Demotic and Ancient Greek, which let Champollion crack it in 1822."
- },
- {
-  "s": "Sports",
-  "q": "Which city hosted the first modern Olympic Games in 1896?",
-  "a": "Athens",
-  "w": [
-   "Paris",
-   "London",
-   "Rome"
-  ],
-  "x": "Paris hosted the second, in 1900, where women competed for the first time."
- },
- {
-  "s": "History",
-  "q": "Who was the first U.S. president to live in the White House?",
-  "a": "John Adams",
-  "w": [
-   "George Washington",
-   "Thomas Jefferson",
-   "James Madison"
-  ],
-  "x": "Adams moved in in November 1800 while it was still unfinished. Washington chose the site but never lived there."
- },
- {
-  "s": "Space",
-  "q": "Which planet has the fastest winds in the solar system?",
-  "a": "Neptune",
-  "w": [
-   "Jupiter",
-   "Saturn",
-   "Venus"
-  ],
-  "x": "Neptune's winds reach about 2,100 km/h, even though it's the farthest planet from the Sun."
- },
- {
-  "s": "Science",
-  "q": "Who worked out the three laws of planetary motion?",
-  "a": "Johannes Kepler",
-  "w": [
-   "Isaac Newton",
-   "Galileo Galilei",
-   "Nicolaus Copernicus"
-  ],
-  "x": "Kepler published them between 1609 and 1619. Newton later explained them with his law of gravity."
- },
- {
-  "s": "Money",
-  "q": "Which country uses the rand?",
-  "a": "South Africa",
-  "w": [
-   "Botswana",
-   "Kenya",
-   "Nigeria"
-  ],
-  "x": "It's named after the Witwatersrand, the ridge where Johannesburg's gold was found."
- },
- {
-  "s": "History",
-  "q": "In what year was the Great Fire of London?",
-  "a": "1666",
-  "w": [
-   "1066",
-   "1605",
-   "1755"
-  ],
-  "x": "It burned for four days, destroying about 13,000 houses and the old St Paul's Cathedral."
- },
- {
-  "s": "Geography",
-  "q": "What is the largest lake in Africa?",
-  "a": "Lake Victoria",
-  "w": [
-   "Lake Tanganyika",
-   "Lake Malawi",
-   "Lake Chad"
-  ],
-  "x": "It's the largest tropical lake in the world. Tanganyika is longer and much deeper, but smaller in area."
+  "x": "Venus is about 95% of Earth's diameter, which is why it's sometimes called Earth's twin."
  },
  {
   "s": "Literature",
-  "q": "Which novel begins with the line “Call me Ishmael”?",
-  "a": "Moby-Dick",
+  "q": "Who wrote War and Peace?",
+  "a": "Leo Tolstoy",
   "w": [
-   "The Old Man and the Sea",
-   "Robinson Crusoe",
-   "Treasure Island"
+   "Fyodor Dostoevsky",
+   "Anton Chekhov",
+   "Ivan Turgenev"
   ],
-  "x": "Herman Melville published it in 1851. It sold poorly in his lifetime."
+  "x": "It was published in the 1860s and follows Russian families through Napoleon's invasion of 1812."
+ },
+ {
+  "s": "Geography",
+  "q": "What is the capital of Brazil?",
+  "a": "Brasília",
+  "w": [
+   "Rio de Janeiro",
+   "São Paulo",
+   "Salvador"
+  ],
+  "x": "Brasília was built from scratch and became the capital in 1960. Rio was the capital before that."
+ },
+ {
+  "s": "World",
+  "q": "How many member states does the United Nations have?",
+  "a": "193",
+  "w": [
+   "195",
+   "188",
+   "201"
+  ],
+  "x": "The Vatican and Palestine are observer states, which is why 195 often comes up as the count of countries."
+ },
+ {
+  "s": "Art",
+  "q": "Which sculptor created The Thinker?",
+  "a": "Auguste Rodin",
+  "w": [
+   "Michelangelo",
+   "Donatello",
+   "Antonio Canova"
+  ],
+  "x": "It began as a figure of Dante for Rodin's Gates of Hell, a giant bronze doorway."
+ },
+ {
+  "s": "Science",
+  "q": "Roughly how fast does light travel?",
+  "a": "300,000 km per second",
+  "w": [
+   "30,000 km per second",
+   "3,000,000 km per second",
+   "300,000 km per hour"
+  ],
+  "x": "The exact figure is 299,792 km/s. Light could go around Earth about 7.5 times in one second."
+ },
+ {
+  "s": "History",
+  "q": "Which country was the first to give all women the right to vote in national elections?",
+  "a": "New Zealand",
+  "w": [
+   "The United States",
+   "The United Kingdom",
+   "Finland"
+  ],
+  "x": "New Zealand did it in 1893. Finland followed in 1906 and was the first to let women stand for parliament."
+ },
+ {
+  "s": "History",
+  "q": "In which country is the ancient city of Petra?",
+  "a": "Jordan",
+  "w": [
+   "Egypt",
+   "Lebanon",
+   "Syria"
+  ],
+  "x": "The Nabataeans carved it into rose-red cliffs over 2,000 years ago."
+ },
+ {
+  "s": "History",
+  "q": "Suleiman the Magnificent ruled which empire?",
+  "a": "The Ottoman Empire",
+  "w": [
+   "The Persian Empire",
+   "The Mughal Empire",
+   "The Byzantine Empire"
+  ],
+  "x": "He reigned from 1520 to 1566, at the empire's peak. The Turks called him Suleiman the Lawgiver."
+ },
+ {
+  "s": "Culture",
+  "q": "What is the longest-running show in Broadway history?",
+  "a": "The Phantom of the Opera",
+  "w": [
+   "Cats",
+   "Chicago",
+   "The Lion King"
+  ],
+  "x": "It ran for 35 years and nearly 14,000 performances before closing in 2023."
  },
  {
   "s": "Biology",
-  "q": "Which enzyme unwinds the DNA double helix so it can be copied?",
-  "a": "Helicase",
+  "q": "Which immune cells turn into plasma cells that produce antibodies?",
+  "a": "B cells",
   "w": [
-   "Topoisomerase",
-   "Primase",
-   "DNA ligase"
+   "T cells",
+   "Neutrophils",
+   "Macrophages"
   ],
-  "x": "Helicase breaks the hydrogen bonds between base pairs. Topoisomerase relieves the twisting ahead of it, and ligase seals the gaps."
+  "x": "Activated B cells become plasma cells, which can each release thousands of antibodies a second. T cells kill infected cells and coordinate the response."
  },
  {
   "s": "Electronics",
-  "q": "An ideal op amp is wired as an inverting amplifier with a 10 kΩ input resistor and a 47 kΩ feedback resistor. With 0.5 V in, what is the output?",
-  "a": "−2.35 V",
+  "q": "An ideal op amp is wired as a non-inverting amplifier with an 8 kΩ feedback resistor and a 2 kΩ resistor to ground. With 1.2 V in, what is the output?",
+  "a": "6 V",
   "w": [
-   "+2.85 V",
-   "+2.35 V",
-   "−0.11 V"
+   "4.8 V",
+   "−4.8 V",
+   "0.24 V"
   ],
-  "x": "Inverting gain is −Rf/Rin = −4.7, so 0.5 V × −4.7 = −2.35 V. +2.85 V is what a non-inverting amplifier (gain 1 + Rf/Rin) would give."
+  "x": "Non-inverting gain is 1 + Rf/R1 = 1 + 8/2 = 5, so 1.2 V × 5 = 6 V. 4.8 V forgets the +1, and −4.8 V uses the inverting formula."
  }
 ]
