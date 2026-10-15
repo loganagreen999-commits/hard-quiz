@@ -1,222 +1,222 @@
 [
  {
   "s": "Geography",
-  "q": "What is the capital of Australia?",
-  "a": "Canberra",
+  "q": "What is the capital of Canada?",
+  "a": "Ottawa",
   "w": [
-   "Sydney",
-   "Melbourne",
-   "Perth"
+   "Toronto",
+   "Montreal",
+   "Vancouver"
   ],
-  "x": "Canberra was purpose-built as a compromise because Sydney and Melbourne both wanted to be the capital."
+  "x": "Queen Victoria picked Ottawa in 1857, partly as a compromise between English and French Canada."
  },
  {
   "s": "Space",
-  "q": "Which planet has the most known moons?",
-  "a": "Saturn",
+  "q": "Which is the hottest planet in the solar system?",
+  "a": "Venus",
   "w": [
-   "Jupiter",
-   "Uranus",
-   "Neptune"
+   "Mercury",
+   "Mars",
+   "Jupiter"
   ],
-  "x": "Saturn pulled clearly ahead of Jupiter after a batch of discoveries in 2023 and has well over 200 now."
+  "x": "Mercury is closer to the Sun, but Venus's thick CO₂ atmosphere traps heat at around 465 °C."
+ },
+ {
+  "s": "Biology",
+  "q": "What is the largest organ of the human body?",
+  "a": "The skin",
+  "w": [
+   "The liver",
+   "The brain",
+   "The lungs"
+  ],
+  "x": "Skin makes up about 15% of body weight. The liver is the largest internal organ."
+ },
+ {
+  "s": "History",
+  "q": "Who was the first woman to win a Nobel Prize?",
+  "a": "Marie Curie",
+  "w": [
+   "Rosalind Franklin",
+   "Mother Teresa",
+   "Dorothy Hodgkin"
+  ],
+  "x": "She won Physics in 1903 and Chemistry in 1911, and is still the only person with Nobels in two sciences."
+ },
+ {
+  "s": "Geography",
+  "q": "What is the longest mountain range on land?",
+  "a": "The Andes",
+  "w": [
+   "The Himalayas",
+   "The Rocky Mountains",
+   "The Ural Mountains"
+  ],
+  "x": "The Andes run about 7,000 km down South America. The Himalayas are the tallest, not the longest."
  },
  {
   "s": "Chemistry",
-  "q": "Which element has the chemical symbol W?",
-  "a": "Tungsten",
+  "q": "Which element has the chemical symbol K?",
+  "a": "Potassium",
   "w": [
-   "Tin",
-   "Titanium",
-   "Xenon"
+   "Krypton",
+   "Calcium",
+   "Phosphorus"
   ],
-  "x": "W comes from its other name, wolfram. Tin is Sn."
- },
- {
-  "s": "Geography",
-  "q": "What is the smallest country in the world by area?",
-  "a": "Vatican City",
-  "w": [
-   "Monaco",
-   "San Marino",
-   "Liechtenstein"
-  ],
-  "x": "It's about 0.44 km². Monaco is second."
- },
- {
-  "s": "Art",
-  "q": "Who painted the ceiling of the Sistine Chapel?",
-  "a": "Michelangelo",
-  "w": [
-   "Raphael",
-   "Leonardo da Vinci",
-   "Botticelli"
-  ],
-  "x": "He painted it from 1508 to 1512, even though he thought of himself as a sculptor."
- },
- {
-  "s": "Biology",
-  "q": "How many bones are in the adult human body?",
-  "a": "206",
-  "w": [
-   "212",
-   "198",
-   "226"
-  ],
-  "x": "Babies are born with around 300, and many of them fuse as they grow."
- },
- {
-  "s": "History",
-  "q": "In what year did the Berlin Wall fall?",
-  "a": "1989",
-  "w": [
-   "1991",
-   "1987",
-   "1990"
-  ],
-  "x": "It fell on November 9, 1989. Germany reunified in 1990, and the USSR dissolved in 1991."
- },
- {
-  "s": "Geography",
-  "q": "Which country has the largest population?",
-  "a": "India",
-  "w": [
-   "China",
-   "United States",
-   "Indonesia"
-  ],
-  "x": "India passed China in 2023, according to UN estimates."
- },
- {
-  "s": "Literature",
-  "q": "Who wrote One Hundred Years of Solitude?",
-  "a": "Gabriel García Márquez",
-  "w": [
-   "Jorge Luis Borges",
-   "Pablo Neruda",
-   "Isabel Allende"
-  ],
-  "x": "It came out in 1967. García Márquez won the Nobel Prize in Literature in 1982."
- },
- {
-  "s": "Science",
-  "q": "Which gas makes up most of Earth's atmosphere?",
-  "a": "Nitrogen",
-  "w": [
-   "Oxygen",
-   "Carbon dioxide",
-   "Argon"
-  ],
-  "x": "About 78% nitrogen and 21% oxygen."
- },
- {
-  "s": "Geography",
-  "q": "What is the largest desert in the world?",
-  "a": "Antarctica",
-  "w": [
-   "The Sahara",
-   "The Gobi",
-   "The Arabian Desert"
-  ],
-  "x": "A desert is defined by low precipitation, not heat. The Sahara is the largest hot desert."
- },
- {
-  "s": "History",
-  "q": "In what year did the Titanic sink?",
-  "a": "1912",
-  "w": [
-   "1905",
-   "1915",
-   "1921"
-  ],
-  "x": "It sank on April 15, 1912, on its maiden voyage from Southampton to New York."
- },
- {
-  "s": "History",
-  "q": "Who was the first person to travel into space?",
-  "a": "Yuri Gagarin",
-  "w": [
-   "Neil Armstrong",
-   "Alan Shepard",
-   "John Glenn"
-  ],
-  "x": "Gagarin orbited Earth on April 12, 1961. Alan Shepard was the first American, three weeks later."
- },
- {
-  "s": "Geography",
-  "q": "Which country has the most islands?",
-  "a": "Sweden",
-  "w": [
-   "Indonesia",
-   "Philippines",
-   "Canada"
-  ],
-  "x": "Sweden has about 267,000 islands, most of them small and uninhabited."
- },
- {
-  "s": "Biology",
-  "q": "Which blood type is the universal donor for red blood cells?",
-  "a": "O negative",
-  "w": [
-   "AB positive",
-   "O positive",
-   "A negative"
-  ],
-  "x": "AB positive is the universal recipient."
- },
- {
-  "s": "Sports",
-  "q": "In which sport would you see a “Fosbury Flop”?",
-  "a": "High jump",
-  "w": [
-   "Pole vault",
-   "Diving",
-   "Gymnastics"
-  ],
-  "x": "Dick Fosbury won Olympic gold with it in 1968, and now almost every high jumper uses it."
- },
- {
-  "s": "Geography",
-  "q": "Which U.S. state borders only one other state?",
-  "a": "Maine",
-  "w": [
-   "Florida",
-   "Washington",
-   "Rhode Island"
-  ],
-  "x": "Maine's only neighboring state is New Hampshire."
+  "x": "K comes from its Latin name, kalium. Krypton is Kr."
  },
  {
   "s": "Animals",
-  "q": "How many hearts does an octopus have?",
-  "a": "3",
+  "q": "What is a group of crows called?",
+  "a": "A murder",
   "w": [
-   "1",
-   "2",
-   "4"
+   "A parliament",
+   "A flock",
+   "A colony"
   ],
-  "x": "Two pump blood through the gills, and one pumps it to the rest of the body."
+  "x": "A parliament is a group of owls."
+ },
+ {
+  "s": "History",
+  "q": "Which civilization built Machu Picchu?",
+  "a": "The Inca",
+  "w": [
+   "The Aztecs",
+   "The Maya",
+   "The Olmecs"
+  ],
+  "x": "It was built around 1450 in the Peruvian Andes, probably as an estate for the emperor Pachacuti."
  },
  {
   "s": "Literature",
-  "q": "Which Shakespeare play has the line “Out, damned spot!”?",
-  "a": "Macbeth",
+  "q": "Who wrote Frankenstein?",
+  "a": "Mary Shelley",
   "w": [
-   "Hamlet",
-   "King Lear",
-   "Othello"
+   "Bram Stoker",
+   "Edgar Allan Poe",
+   "Charlotte Brontë"
   ],
-  "x": "Lady Macbeth says it while sleepwalking, trying to wash out blood only she can see."
+  "x": "She started it at 18, during a ghost-story contest with Lord Byron at Lake Geneva in 1816."
  },
  {
-  "s": "Language",
-  "q": "Which language has the most native speakers?",
-  "a": "Mandarin Chinese",
+  "s": "Space",
+  "q": "What is the closest star to Earth?",
+  "a": "The Sun",
   "w": [
-   "English",
-   "Spanish",
-   "Hindi"
+   "Proxima Centauri",
+   "Sirius",
+   "Alpha Centauri A"
   ],
-  "x": "English has the most speakers overall once second-language learners are counted."
+  "x": "The Sun is a star. The next closest is Proxima Centauri, about 4.2 light-years away."
+ },
+ {
+  "s": "Math",
+  "q": "What is the only even prime number?",
+  "a": "2",
+  "w": [
+   "0",
+   "4",
+   "There isn't one"
+  ],
+  "x": "Every other even number is divisible by 2, so it can't be prime."
+ },
+ {
+  "s": "Geography",
+  "q": "Which river flows through Baghdad?",
+  "a": "The Tigris",
+  "w": [
+   "The Euphrates",
+   "The Nile",
+   "The Jordan"
+  ],
+  "x": "The Tigris and the Euphrates run side by side through Iraq, but Baghdad sits on the Tigris."
+ },
+ {
+  "s": "Music",
+  "q": "How many keys does a standard piano have?",
+  "a": "88",
+  "w": [
+   "76",
+   "92",
+   "84"
+  ],
+  "x": "There are 52 white keys and 36 black keys."
+ },
+ {
+  "s": "History",
+  "q": "In what year did King John agree to the Magna Carta?",
+  "a": "1215",
+  "w": [
+   "1066",
+   "1314",
+   "1492"
+  ],
+  "x": "It was sealed at Runnymede, not signed. 1066 is the Norman Conquest."
+ },
+ {
+  "s": "Science",
+  "q": "What is the most abundant element in the universe?",
+  "a": "Hydrogen",
+  "w": [
+   "Helium",
+   "Oxygen",
+   "Carbon"
+  ],
+  "x": "Hydrogen is about three quarters of all normal matter by mass. Helium is second."
+ },
+ {
+  "s": "Sports",
+  "q": "How long is a marathon?",
+  "a": "26.2 miles",
+  "w": [
+   "25 miles",
+   "24.8 miles",
+   "27.5 miles"
+  ],
+  "x": "That's 42.195 km, a distance fixed at the 1908 London Olympics."
+ },
+ {
+  "s": "Geography",
+  "q": "Which is the driest non-polar desert on Earth?",
+  "a": "The Atacama",
+  "w": [
+   "The Sahara",
+   "Death Valley",
+   "The Gobi"
+  ],
+  "x": "Some weather stations in Chile's Atacama have never recorded rain."
+ },
+ {
+  "s": "Biology",
+  "q": "What is the longest bone in the human body?",
+  "a": "The femur",
+  "w": [
+   "The tibia",
+   "The humerus",
+   "The spine"
+  ],
+  "x": "The thigh bone is roughly a quarter of a person's height."
+ },
+ {
+  "s": "History",
+  "q": "Who was the first emperor of Rome?",
+  "a": "Augustus",
+  "w": [
+   "Julius Caesar",
+   "Nero",
+   "Caligula"
+  ],
+  "x": "Julius Caesar was a dictator, never emperor. His heir Octavian became Augustus in 27 BC."
+ },
+ {
+  "s": "Animals",
+  "q": "What color is a polar bear's skin?",
+  "a": "Black",
+  "w": [
+   "White",
+   "Pink",
+   "Grey"
+  ],
+  "x": "The black skin absorbs heat. The fur isn't white either, but translucent."
  }
 ]
