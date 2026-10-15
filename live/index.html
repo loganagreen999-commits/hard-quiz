@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#c4473a">
+<title>Know-It-All Live</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one card per game phase; the host view is the same card scaled up with the QR and roster beside it. */
+:root{
+  --paper:#f3f6f1; --sheet:#ffffff; --ink:#1d2421; --muted:#5d6a63;
+  --form:#c4473a; --rule:#d9e1db; --lead:#2b2f33;
+  --ok:#2f7d4f; --ok-soft:#dcefe2; --bad:#b33a2e; --bad-soft:#f7dedb;
+  --c0:#c4473a; --c1:#2f62a8; --c2:#b8860b; --c3:#2f7d4f;
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#141816; --sheet:#1c211f; --ink:#e7ece9; --muted:#9aa8a0;
+  --form:#e57a6c; --rule:#2e3632; --lead:#e7ece9;
+  --ok:#6fcf97; --ok-soft:#1f3328; --bad:#f08a7e; --bad-soft:#3b2220;
+  --c0:#d8574a; --c1:#4b7fc9; --c2:#c99a1c; --c3:#3f9a64; color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{min-height:100%;margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.45;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:max(24px,env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:16px;padding-top:18px}
+.host .wrap{max-width:1180px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--form);padding-bottom:8px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:26px;letter-spacing:.02em;text-transform:uppercase;color:var(--form);line-height:1}
+.brand small{display:block;font-weight:500;font-size:13px;letter-spacing:.14em;color:var(--muted);margin-top:4px}
+.meta{font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.card{background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:22px 20px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.lbl{font-family:var(--f-display);font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--form)}
+.lbl .sub{color:var(--muted);font-weight:500}
+h1{font-size:24px;font-weight:600;line-height:1.3;margin:0;text-wrap:balance}
+.host h1{font-size:40px}
+p{margin:0}
+.muted{color:var(--muted)}
+.opts{display:grid;grid-template-columns:1fr;gap:10px}
+.host .opts{grid-template-columns:1fr 1fr}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;font-size:17px;color:var(--ink);
+  background:transparent;border:1px solid var(--rule);border-left:6px solid var(--cc);border-radius:6px;padding:14px;cursor:pointer;touch-action:manipulation}
+.host .opt{font-size:24px;padding:18px}
+.opt:focus-visible{outline:2px solid var(--form);outline-offset:2px}
+.bub{flex:none;width:32px;height:32px;border-radius:50%;background:var(--cc);display:grid;place-items:center;
+  font-family:var(--f-display);font-weight:700;font-size:15px;color:#fff}
+.opt:disabled{cursor:default;opacity:.55}
+.opt.pick{opacity:1;background:var(--paper);border-color:var(--cc)}
+.opt.right{opacity:1;background:var(--ok-soft);border-color:var(--ok)}
+.opt.wrong{opacity:1;background:var(--bad-soft);border-color:var(--bad)}
+.why{font-size:16px;color:var(--muted);border-left:3px solid var(--form);padding-left:12px}
+.why b{color:var(--ink)}
+.btn{font-family:var(--f-display);font-weight:700;font-size:18px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--form);color:#fff;border:0;border-radius:6px;padding:13px 24px;cursor:pointer;touch-action:manipulation}
+.btn:disabled{opacity:.4;cursor:default}
+.btn.ghost{background:transparent;color:var(--form);border:1.5px solid var(--form)}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+input,textarea{font:inherit;font-size:18px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:12px;width:100%}
+textarea{min-height:140px;resize:vertical}
+input:focus,textarea:focus{outline:2px solid var(--form);outline-offset:1px}
+.big{font-family:var(--f-display);font-weight:700;font-size:56px;line-height:1;font-variant-numeric:tabular-nums}
+.big.ok{color:var(--ok)} .big.bad{color:var(--bad)}
+.note{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.board{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.board li{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--rule);font-size:16px}
+.host .board li{font-size:20px}
+.board .r{font-family:var(--f-mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.board .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.board .me .nm{font-weight:600}
+.board .pts{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.tag{font-family:var(--f-mono);font-size:13px;margin-left:6px}
+.tag.ok{color:var(--ok)} .tag.bad{color:var(--bad)} .tag.gain{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:16px;border:1px solid var(--rule);border-radius:999px;padding:5px 12px;background:var(--paper)}
+.chip.done{border-color:var(--ok);color:var(--ok)}
+.chip.away{opacity:.45}
+.chip button{font:inherit;background:none;border:0;color:var(--muted);cursor:pointer;padding:0 0 0 6px}
+.split{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.host .split{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.qr{background:#fff;border-radius:6px;padding:10px;width:100%;max-width:340px;aspect-ratio:1;align-self:center}
+.url{font-family:var(--f-mono);font-size:20px;word-break:break-all;text-align:center}
+.podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:end;text-align:center}
+.step{background:var(--paper);border:1px solid var(--rule);border-radius:6px 6px 0 0;padding:10px 6px;display:flex;flex-direction:column;gap:4px}
+.step .nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.step .place{font-family:var(--f-display);font-weight:700;font-size:28px;color:var(--form)}
+.step.p1{min-height:150px;border-color:var(--form)} .step.p2{min-height:115px} .step.p3{min-height:90px}
+.err{color:var(--bad);font-size:15px}
+</style>
+<style>
+.qr{display:grid;place-items:center}
+.qr img,.qr canvas{width:100%;height:auto;image-rendering:pixelated}
+.code{font-family:var(--f-display);font-weight:700;font-size:44px;letter-spacing:.18em;text-align:center;color:var(--form)}
+.host .code{font-size:64px}
+.status{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.status.bad{color:var(--bad)}
+input.code-in{text-transform:uppercase;letter-spacing:.2em;font-family:var(--f-mono)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">Know-It-All Live<small id="sub">General knowledge · 20 questions</small></div>
+    <div class="meta" id="meta"></div>
+  </header>
+  <main id="app"><section class="card"><p class="muted">Connecting…</p></section></main>
+  <p class="status" id="status"></p>
+</div>
+<script src="https://unpkg.com/mqtt@4.3.7/dist/mqtt.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="game.js"></script>
+<script>
+// Transport: a public MQTT relay. The host tab owns the game and publishes the whole public view
+// (retained, so a phone that joins late gets it at once); phones publish small messages upstream.
+const BROKERS=["wss://broker.hivemq.com:8884/mqtt","wss://broker.emqx.io:8084/mqtt"];
+const NS="kia-quiz-v1/";
+const P=new URLSearchParams(location.search);
+const HOST=P.has("host");
+if(HOST)document.body.classList.add("host");
+const app=document.getElementById("app"),meta=document.getElementById("meta"),statusEl=document.getElementById("status");
+const L="ABCD";
+const ls={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+const rid=n=>{const a="ABCDEFGHJKMNPQRSTUVWXYZ23456789",b=new Uint32Array(n);crypto.getRandomValues(b);return[...b].map(x=>a[x%a.length]).join("")};
+
+let S=null,screenKey="",lastSig="",client=null;
+let room="",bi=0,pid=null,myName="",picks={},hazelSent=false;
+
+function el(t,c,txt){const e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e}
+function setStatus(t,bad){statusEl.textContent=t;statusEl.className="status"+(bad?" bad":"")}
+function connect(onConnect){
+  client=mqtt.connect(BROKERS[bi],{clientId:"kia_"+rid(10),clean:true,reconnectPeriod:2000,connectTimeout:8000});
+  client.on("connect",()=>{setStatus("Connected");onConnect()});
+  client.on("reconnect",()=>setStatus("Reconnecting…",true));
+  client.on("offline",()=>setStatus("Offline. Reconnecting…",true));
+  client.on("error",()=>setStatus("Connection problem. Retrying…",true));
+}
+const joinURL=()=>`${location.origin}${location.pathname}?r=${room}${bi?"&b="+bi:""}`;
+
+/* ---------------- host ---------------- */
+let G=null,lastPub="";
+async function hostBoot(){
+  const Q=await (await fetch("questions.json",{cache:"no-store"})).json();
+  const saved=ls.get("kia.host");
+  room=(P.get("room")||saved?.room||rid(5)).toUpperCase();bi=+(P.get("b")||saved?.bi||0);
+  G=new KIAGame(Q,saved&&saved.room===room?saved.game:null);
+  connect(()=>{client.subscribe(NS+room+"/up",{qos:1});publish(true)});
+  client.on("message",(t,m)=>{let d;try{d=JSON.parse(m)}catch(e){return}
+    const now=Date.now();
+    if(d.t==="hi")G.hi(String(d.pid||""),d.name,now);
+    else if(d.t==="answer")G.answer(String(d.pid||""),+d.k,+d.qi,now);
+    else if(d.t==="hazel")G.hazel(String(d.pid||""),now);
+    publish()});
+  setInterval(()=>publish(),1000);
+  publish();
+}
+function publish(force){
+  const v=G.view(Date.now()),s=JSON.stringify(v);
+  if(s!==lastPub||force){lastPub=s;if(client&&client.connected)client.publish(NS+room+"/state",s,{qos:1,retain:true});
+    ls.set("kia.host",{room,bi,game:G.snapshot()})}
+  S=v;render();
+}
+function hostDo(fn){fn(Date.now());publish(true)}
+function newRoom(){ls.del("kia.host");location.href=location.pathname+"?host"}
+
+/* ---------------- player ---------------- */
+function playerBoot(){
+  room=(P.get("r")||"").toUpperCase().replace(/[^A-Z0-9]/g,"");bi=+(P.get("b")||0);
+  myName=ls.get("kia.name")||"";
+  if(!room){show("code",codeScreen);return}
+  pid=ls.get("kia.pid."+room);
+  connect(()=>{client.subscribe(NS+room+"/state",{qos:1});hi()});
+  client.on("message",(t,m)=>{try{S=JSON.parse(m)}catch(e){return}render()});
+  setInterval(hi,3000);
+  show("wait",c=>c.append(el("p","muted",`Looking for room ${room}…`)));
+  setTimeout(()=>{if(!S)show("wait2",c=>c.append(el("h1",null,`No game found for room ${room}.`),
+    el("p","muted","Check the code on the host's screen, or ask the host to open the game first.")))},9000);
+}
+function send(d){if(client&&client.connected)client.publish(NS+room+"/up",JSON.stringify(d),{qos:1})}
+function hi(){if(pid)send({t:"hi",pid,name:myName})}
+function me(){
+  if(HOST||!S||!pid)return null;
+  const r=S.players.find(p=>p.id===pid);if(!r)return null;
+  const m={...r};
+  if(S.phase==="question")m.pick=picks[S.qi]??null;
+  return m;
+}
+
+/* ---------------- rendering ---------------- */
+function render(){
+  if(!S)return;
+  if(S.phase!=="hazel"&&S.phase!=="final")hazelSent=false;
+  if(S.phase==="lobby"||S.phase==="hazel"||S.phase==="final")picks={};
+  const M=me(),sig=JSON.stringify(S)+hazelSent+pid+JSON.stringify(picks);
+  if(sig===lastSig)return;lastSig=sig;
+  const n=S.players.length;
+  meta.textContent=S.phase==="lobby"?`${n} player${n===1?"":"s"}`:
+    (S.phase==="question"||S.phase==="reveal")?`Q ${S.qi+1} / ${S.n}${M?` · ${M.score} pts`:""}`:M?`${M.score} pts`:"";
+  if(!HOST&&!M){
+    if(pid&&S.kicked.includes(pid))return show("kicked",c=>c.append(el("h1",null,"The host removed you from this game.")));
+    if(pid)return show("joining",c=>c.append(el("p","muted","Joining…")));
+    return show("join",joinScreen);
+  }
+  if(S.phase==="hazel"&&!HOST&&!M.hazel&&!hazelSent)return show("hazel",hazelScreen);
+  show(null,c=>({lobby,question,reveal,hazel:hazelWait,final})[S.phase](c,M));
+}
+function show(key,fn){
+  if(key&&key===screenKey)return;
+  screenKey=key||"";
+  const c=el("section","card");fn(c);app.replaceChildren(c);
+}
+const row=(...xs)=>{const r=el("div","row");r.append(...xs);return r};
+
+function codeScreen(c){
+  c.append(el("div","lbl","Join a game"),el("h1",null,"Enter the room code"));
+  const i=el("input","code-in");i.id="room";i.maxLength=5;i.autocomplete="off";i.placeholder="ABCDE";i.inputMode="text";
+  const b=el("button","btn","Next");b.id="go";
+  const go=()=>{const r=i.value.toUpperCase().replace(/[^A-Z0-9]/g,"");if(r.length<4)return;location.href=`${location.pathname}?r=${r}`};
+  b.onclick=go;i.onkeydown=e=>{if(e.key==="Enter")go()};c.append(i,row(b));
+}
+function joinScreen(c){
+  c.append(el("div","lbl",`Room ${room}`),el("h1",null,"What should we call you?"));
+  const i=el("input");i.id="name";i.maxLength=16;i.autocomplete="nickname";i.placeholder="Your name";i.value=myName;
+  const b=el("button","btn","Join");b.id="join";const err=el("p","err");
+  const go=()=>{const name=i.value.trim();if(!name){err.textContent="Type a name first.";return}
+    myName=name;ls.set("kia.name",name);pid=rid(12);ls.set("kia.pid."+room,pid);hi();lastSig="";render()};
+  b.onclick=go;i.onkeydown=e=>{if(e.key==="Enter")go()};
+  c.append(i,err,row(b));setTimeout(()=>i.focus(),50);
+}
+
+function chips(players,{kick=false,doneFn=null}={}){
+  const w=el("div","chips");
+  players.forEach(p=>{const ch=el("span","chip"+(doneFn&&doneFn(p)?" done":"")+(p.active?"":" away"),p.name+(p.id===pid?" (you)":""));
+    if(kick&&HOST){const x=el("button",null,"×");x.title="Remove "+p.name;x.onclick=()=>hostDo(()=>G.kick(p.id));ch.append(x)}
+    w.append(ch)});
+  return w;
+}
+function board(players,{reveal=false}={}){
+  const ul=el("ul","board");
+  players.forEach(p=>{
+    const mine=p.id===pid,li=el("li",mine?"me":""),nm=el("span","nm",p.name+(mine?" (you)":""));
+    if(reveal)nm.append(p.pick==null?el("span","tag bad","no answer"):el("span","tag "+(p.ok?"ok":"bad"),`${L[p.pick]} ${p.ok?"✓":"✗"}`));
+    const pts=el("span","pts",String(p.score));
+    if(reveal&&p.pts)pts.prepend(el("span","tag gain",`+${p.pts} `));
+    li.append(el("span","r",String(p.rank)),nm,pts);ul.append(li)});
+  return ul;
+}
+
+function lobby(c,M){
+  if(HOST){
+    const sp=el("div","split"),l=el("div"),r=el("div");
+    l.style.cssText=r.style.cssText="display:flex;flex-direction:column;gap:14px;min-width:0";
+    const qr=el("div","qr");new QRCode(qr,{text:joinURL(),width:640,height:640,correctLevel:QRCode.CorrectLevel.M});
+    l.append(el("div","lbl","Scan to join"),qr,el("div","lbl","Or go to the site and enter code"),el("div","code",room),
+      el("div","url",joinURL().replace(/^https?:\/\//,"")));
+    r.append(el("div","lbl",`Players · ${S.players.length}`),S.players.length?chips(S.players,{kick:true}):el("p","muted","Nobody yet. Works on any wifi or cellular."));
+    const b=el("button","btn","Start game");b.id="start";b.disabled=!S.players.length;b.onclick=()=>hostDo(n=>G.start(n));
+    const nr=el("button","btn ghost","New room");nr.id="newroom";nr.onclick=newRoom;
+    r.append(row(nr,b));sp.append(l,r);c.append(sp);
+  }else{
+    c.append(el("div","lbl",`Room ${room} · You're in`),el("h1",null,`Hang tight, ${M.name}.`),
+      el("p","muted","The game starts when the host presses Start."),el("div","lbl",`Players · ${S.players.length}`),chips(S.players));
+  }
+}
+
+function opts(q,{pick=null,reveal=false,onPick=null}={}){
+  const w=el("div","opts");
+  q.c.forEach((t,k)=>{const b=el("button","opt");b.id="opt-"+k;b.style.setProperty("--cc",`var(--c${k})`);
+    b.append(el("span","bub",L[k]),el("span",null,t));
+    if(reveal){b.disabled=true;if(k===q.a)b.classList.add("right");else if(k===pick)b.classList.add("wrong")}
+    else if(pick!=null||!onPick){b.disabled=true;if(k===pick)b.classList.add("pick")}
+    else b.onclick=()=>onPick(k);
+    w.append(b)});
+  return w;
+}
+
+function question(c,M){
+  const q=S.q,lbl=el("div","lbl",`Question ${S.qi+1} of ${S.n} · `);lbl.append(el("span","sub",q.s));
+  c.append(lbl,el("h1",null,q.q));
+  const waiting=S.players.filter(p=>p.waiting);
+  if(HOST){
+    c.append(opts(q),el("div","lbl",`Answered · ${S.players.length-waiting.length} / ${S.players.length} · ${q.elapsed}s`),
+      chips(S.players,{kick:true,doneFn:p=>!p.waiting}));
+    const b=el("button","btn ghost","Reveal now");b.id="force";b.onclick=()=>hostDo(n=>G.next(n));c.append(row(b));return;
+  }
+  if(M.late){c.append(el("p","muted","You joined mid-question. You're in from the next one."));return}
+  const answered=M.answered||M.pick!=null;
+  c.append(opts(q,{pick:answered?M.pick:null,onPick:answered?null:k=>{picks[S.qi]=k;send({t:"answer",pid,k,qi:S.qi});lastSig="";render()}}));
+  if(answered)c.append(el("p","muted",waiting.length?`Locked in. Waiting on ${waiting.filter(p=>p.id!==pid).map(p=>p.name).join(", ")||"the host"}.`:"Locked in."));
+}
+
+function reveal(c,M){
+  const q=S.q;
+  c.append(el("div","lbl",`Question ${S.qi+1} of ${S.n} · Answer`));
+  if(M)c.append(el("div","big "+(M.ok?"ok":"bad"),M.pick==null?"No answer":M.ok?`Correct  +${M.pts}`:"Wrong"));
+  c.append(el("h1",null,q.q),opts(q,{pick:M?M.pick:null,reveal:true}));
+  const why=el("p","why");why.append(el("b",null,`${L[q.a]}. ${q.c[q.a]}. `),q.x);c.append(why);
+  c.append(el("div","lbl","Who got it"),board(S.players,{reveal:true}));
+  if(HOST){const b=el("button","btn",S.qi+1<S.n?"Next question":"Final question");b.id="next";b.onclick=()=>hostDo(n=>G.next(n));c.append(row(b))}
+  else c.append(el("p","note","Waiting for the host to continue"));
+}
+
+function hazelScreen(c){
+  c.append(el("div","lbl","Final question · Open response"),el("h1",null,"What is hazel?"),el("p","note","Not scored"));
+  const t=el("textarea");t.id="hazel";t.setAttribute("aria-label","Your answer");t.placeholder="Write your answer…";
+  const b=el("button","btn","Submit");b.id="hz";
+  // the typed text is never sent anywhere; the host only learns this player is done
+  b.onclick=()=>{hazelSent=true;t.value="";send({t:"hazel",pid});screenKey="";lastSig="";render()};
+  c.append(t,row(b));
+}
+function hazelWait(c){
+  const waiting=S.players.filter(p=>p.waiting);
+  c.append(el("div","lbl","Final question · Open response · Not scored"),el("h1",null,"What is hazel?"));
+  if(HOST){c.append(el("div","lbl",`Done · ${S.players.length-waiting.length} / ${S.players.length}`),chips(S.players,{kick:true,doneFn:p=>!p.waiting}));
+    const b=el("button","btn ghost","Show results now");b.id="skip";b.onclick=()=>hostDo(n=>G.next(n));c.append(row(b))}
+  else c.append(el("p","muted",waiting.length?`Thanks. Waiting on ${waiting.map(p=>p.name).join(", ")}.`:"Thanks."));
+}
+
+function final(c,M){
+  const Ps=S.players,top=Ps.slice(0,3);
+  c.append(el("div","lbl","Final standings"),el("h1",null,Ps.length?`${Ps[0].name} wins.`:"No players."));
+  if(top.length){const pd=el("div","podium");[1,0,2].forEach(i=>{const p=top[i];if(!p){pd.append(el("div"));return}
+    const s=el("div","step p"+(i+1));s.append(el("span","place",["1st","2nd","3rd"][i]),el("span","nm",p.name),el("span","muted",`${p.score} pts · ${p.correct}/${S.n}`));pd.append(s)});c.append(pd)}
+  if(M)c.append(el("p",null,`You finished #${M.rank} of ${Ps.length} with ${M.score} points (${M.correct}/${S.n} right).`));
+  c.append(board(Ps));
+  if(HOST){const a=el("button","btn","Play again");a.id="again";a.onclick=()=>hostDo(n=>G.start(n));
+    const b=el("button","btn ghost","Back to lobby");b.id="lobby";b.onclick=()=>hostDo(()=>G.reset());c.append(row(b,a))}
+}
+
+if(typeof mqtt==="undefined")show("err",c=>c.append(el("h1",null,"Couldn't load the game. Check your connection and reload.")));
+else if(HOST)hostBoot();else playerBoot();
+</script>
+</body>
+</html>
